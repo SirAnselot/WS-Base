@@ -1,0 +1,21 @@
+{
+  	"paths": {
+		"vendor": [
+			"../src/js/vendor/jquery/1.11.1/jquery.min.js",
+	  		"../src/js/vendor/tether/1.3.0/tether.min.js",
+	  		"../src/js/vendor/bootstrap/4.0.0/bootstrap.min.js",
+	  		"../src/js/vendor/bootstrap.datepicker/1.7.0/bootstrap-datepicker.min.js",
+	  		"../src/js/vendor/bootstrap.datepicker/locales/bootstrap-datepicker.de.min.js",
+	  		"../src/js/vendor/gsap/1.18.4/TweenMax.min.js",
+	  		"../src/js/vendor/imagesloaded/3.1.4/imagesloaded.js",
+	  		"../src/js/vendor/scrollmagic/2.0.5/ScrollMagic.min.js",
+	  		"../src/js/vendor/waypoints/4.0.0/jquery.waypoints.min.js",
+	  		"../src/js/vendor/modernizr/2.6.2/modernizr.min.js",
+	  		"../src/js/vendor/enquire/2.1.0/enquire.js"
+		],
+		"core": [
+			"../public/js/app/wsux/pointerManager.js",
+	        "../public/js/app/app.js"
+		]
+  	}
+}
