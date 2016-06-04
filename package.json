@@ -2,51 +2,60 @@
 	"name": "ws-base",
 	"description": "Basic frontend development setup (incl. jQuery, Bootstrap 4, GSAP)",
 	"version": "1.0.0",
-	"client": "custom",
+	"private": true,
 	"homepage": "http://www.weigelstein.de",
   	"author": "Ansgar Hiller <ansgar@weigelstein.de>",
+  	"scripts": {
+    "change-version": "node grunt/change-version.js",
+    	"test": "grunt test"
+  	},
+  	"license": "MIT",
 	"keywords": [
 		"css",
     	"js",
     	"sass",
     	"mobile-first",
     	"responsive",
-    	"front-end",
-    	"framework",
-    	"web",
-		"bootstrap",
-		"UX",
-		"UI",
-		"möse"
+    	"bootstrap",
+    	"gsap",
+    	"web"
 	],
-	"cms": "null",
-	"theme": "ws",
-	"skin": "ws",
+	"main": "public",
   	"dist": "public",
-  	"app": [
-  		"public/js/app/ws/pointerManager.js",
-  		"public/js/app/app.js"
-  	],
-  	"vendor": [
-  		"../vendor/jquery/1.12.4/jquery.js",
-	  	"../vendor/tether/1.3.0/tether.js",
-	  	"../vendor/bootstrap/4.0.0/bootstrap.js",
-	  	"../vendor/gsap/1.18.4/TweenMax.js",
-	  	"../vendor/imagesloaded/4.1.0/imagesloaded.js",
-	  	"../vendor/waypoints/4.0.0/jquery.waypoints.js",
-	  	"../vendor/modernizr/2.6.2/modernizr.min.js",
-	  	"../vendor/enquire/2.1.0/enquire.js"
-  	],
-  	"scss": "public/scss",
+  	"config": {
+  		"client": "custom",
+  		"files": {
+  			"js": {
+			  	"app": {
+			  		"src": [
+			  			"public/js/app/ws/pointerManager.js",
+			  			"public/js/app/app.js"
+			  		],
+			  		"dest": "public/js"
+			  	},
+			  	"vendor": {
+			  		"src": [
+				  		"../vendor/jquery/1.12.4/jquery.js",
+					  	"../vendor/tether/1.3.0/tether.js",
+					  	"../vendor/bootstrap/4.0.0/bootstrap.js",
+					  	"../vendor/gsap/1.18.4/TweenMax.js",
+					  	"../vendor/imagesloaded/4.1.0/imagesloaded.js",
+					  	"../vendor/waypoints/4.0.0/jquery.waypoints.js",
+					  	"../vendor/modernizr/2.6.2/modernizr.min.js",
+					  	"../vendor/enquire/2.1.0/enquire.js"
+			  		],
+			  		"dest": "public/js/vendor"
+			  	}
+		  	},
+		  	"scss": "public/scss"
+	  	}
+	},
   	"files": [
 		"Gruntfile.js",
 		"grunt/*.js",
     	"grunt/*.json",
     	"scss/**/*.scss",
-    	"vendor/**/*.js",
-    	"node_modules/*",
-    	"public/js/*.js",
-    	"public/css/**/*.css",
+    	"public",
 		"LICENSE"
   	],
   	"dependencies": {

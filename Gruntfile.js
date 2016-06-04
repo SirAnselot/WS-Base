@@ -13,7 +13,6 @@ module.exports = function (grunt) {
   	var fs = require('fs');
   	var path = require('path');
   	var glob = require('glob');
-
 	var mq4HoverShim = require('mq4-hover-shim');
 	var autoprefixer = require('autoprefixer')({
 		browsers: [
@@ -45,6 +44,15 @@ module.exports = function (grunt) {
 		  'Android >= 4',
 		  'Opera >= 12'
 		]
+	});
+
+	var generateCommonJSModule = require('./grunt/bs-commonjs-generator.js');
+  	var configBridge = grunt.file.readJSON('./grunt/configBridge.json', { encoding: 'utf8' });
+
+	Object.keys(configBridge.paths).forEach(function (key) {
+		configBridge.paths[key].forEach(function (val, i, arr) {
+	    	arr[i] = path.join('./docs/assets', val);
+		});
 	});
 	
 	grunt.initConfig({
@@ -82,12 +90,12 @@ module.exports = function (grunt) {
 	        	stripBanners: false
 	      	},
 	      	core: {
-	        	src:  '<%= pkg.app %>',
-	        	dest: '<%= pkg.dist %>/js/<%= pkg.client %>.js'
+	        	src:  '<%= pkg.config.files.js.app.src %>',
+	        	dest: '<%= pkg.config.files.js.app.dest %>/<%= pkg.config.client %>.js'
 	      	},
 	      	vendor: {
-	        	src:  '<%= pkg.vendor %>',
-	        	dest: '<%= pkg.dist %>/js/vendor/vendor.js'
+	        	src:  '<%= pkg.config.files.js.vendor.src %>',
+	        	dest: '<%= pkg.config.files.js.vendor.dest %>/vendor.js'
 	      	}
 	    },
 
@@ -105,22 +113,22 @@ module.exports = function (grunt) {
 	      	},
 	      	vendor: {
 	        	src: '<%= concat.vendor.dest %>',
-	        	dest: '<%= pkg.dist %>/js/vendor/vendor.min.js'
+	        	dest: '<%= pkg.config.files.js.vendor.dest %>/vendor.min.js'
 	      	}
     	},
 
 		sass: {
 			compile: {
 				files: {
-					'<%= pkg.dist %>/css/<%= pkg.client %>.css': '<%= pkg.scss %>/<%= pkg.client %>.scss',
+					'<%= pkg.dist %>/css/<%= pkg.client %>.css': '<%= pkg.config.files.scss %>/<%= pkg.client %>.scss',
 				}
 			},
 			sourceMap: {
 				options: {
-					sourceMap: '<%= pkg.dist %>/css/<%= pkg.client %>.map'
+					sourceMap: '<%= pkg.dist %>/css/<%= pkg.config.client %>.map'
 				},
 				files: {
-					'<%= pkg.dist %>/css/<%= pkg.client %>.css': '<%= pkg.scss %>/<%= pkg.client %>.scss'
+					'<%= pkg.dist %>/css/<%= pkg.config.client %>.css': '<%= pkg.config.files.scss %>/<%= pkg.config.client %>.scss'
 				}
 			},
 			precision: {
@@ -128,7 +136,7 @@ module.exports = function (grunt) {
 					precision: 10
 				},
 				files: {
-					'<%= pkg.dist %>/css/precision.css': '<%= pkg.scss %>/precision.scss'
+					'<%= pkg.dist %>/css/precision.css': '<%= pkg.config.files.scss %>/precision.scss'
 				}
 			}
 		},
@@ -165,7 +173,7 @@ module.exports = function (grunt) {
 		},
 		watch: {
 			sass: {
-				files: ['<%= pkg.scss %>/**/*.scss','scss/*.scss'],
+				files: ['<%= pkg.config.files.scss %>/**/*.scss','<%= pkg.config.files.scss %>/*.scss'],
 				tasks: 'dist-css'
 			},
 			js: {
