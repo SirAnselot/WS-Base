@@ -6,25 +6,18 @@
 // inline element with the appropriate classes, like so:
 //
 // <a href="#"><i class="glyphicon glyphicon-star"></i> Star</a>
-$icon-font-path: if($bootstrap-sass-asset-helper, "bootstrap/", "../fonts/glyphicons/") !default;
-//** File name for all font files.
-$icon-font-name: "glyphicons-regular" !default;
-//** Element ID within SVG icon file.
-$icon-font-svg-id: "glyphiconsregular" !default;
 
 // Import the fonts
-@at-root {
-  // Import the fonts
-  @font-face {
-    font-family: 'Glyphicons Regular';
-    src: url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.eot'), '#{$icon-font-path}#{$icon-font-name}.eot'));
-    src: url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.eot?#iefix'), '#{$icon-font-path}#{$icon-font-name}.eot?#iefix')) format('embedded-opentype'),
-         url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.woff2'), '#{$icon-font-path}#{$icon-font-name}.woff2')) format('woff2'),
-         url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.woff'), '#{$icon-font-path}#{$icon-font-name}.woff')) format('woff'),
-         url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.ttf'), '#{$icon-font-path}#{$icon-font-name}.ttf')) format('truetype'),
-         url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.svg##{$icon-font-svg-id}'),'#{$icon-font-path}#{$icon-font-name}.svg##{$icon-font-svg-id}')) format('svg');
-  }
+@font-face {
+  font-family: 'Glyphicons Regular';
+  src: url('../fonts/glyphicons-regular.eot');
+  src: url('../fonts/glyphicons-regular.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/glyphicons-regular.woff2') format('woff2'),
+       url('../fonts/glyphicons-regular.woff') format('woff'),
+       url('../fonts/glyphicons-regular.ttf') format('truetype'),
+       url('../fonts/glyphicons-regular.svg#glyphiconsregular') format('svg');
 }
+
 // Catchall baseclass
 .glyphicons {
   //position: relative;
@@ -88,7 +81,7 @@ $icon-font-svg-id: "glyphiconsregular" !default;
 .glyphicons.drop{
   &:before{
     text-shadow: -1px 1px 3px rgba(0,0,0,0.3);
-  }
+  }  
 }
 
 // Horizontal Flip
@@ -128,6 +121,9 @@ $icon-font-svg-id: "glyphiconsregular" !default;
   -ms-transform: rotate(270deg);
   transform: rotate(270deg);
 }
+
+
+
 
 // Individual icons
 .glyphicons-glass{ &:before{ content:"\E001";} }
