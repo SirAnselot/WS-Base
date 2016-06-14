@@ -3,7 +3,6 @@
  * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-
 // Core variables and mixins
 @import "custom/variables";
 @import "bs_4.0.0/mixins";
@@ -11,9 +10,6 @@
 // Reset and dependencies
 @import "bs_4.0.0/normalize";
 @import "bs_4.0.0/print";
-
-@import "custom/glyphiconspro";
-@import "custom/entypo";
 
 // Core CSS
 @import "bs_4.0.0/reboot";
@@ -57,6 +53,8 @@
 @import "bs_4.0.0/utilities-background";
 @import "bs_4.0.0/utilities-spacing";
 @import "bs_4.0.0/utilities-responsive";
+
+@import "custom/entypo";
 
 // MEDIA QUERIES (samples)
 

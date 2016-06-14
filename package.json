@@ -46,6 +46,7 @@
     	"grunt/*.json",
     	"public",
 		"public/scss/**/*.scss",
+		"public/scss/*.scss",
 		"LICENSE"
   	],
   	"dependencies": {

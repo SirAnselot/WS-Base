@@ -120,7 +120,6 @@ module.exports = function (grunt) {
 	        	dest: '<%= pkg.config.files.js.vendor.dest %>/vendor.min.js'
 	      	}
     	},
-
 		sass: {
 			compile: {
 				files: {
@@ -208,7 +207,7 @@ module.exports = function (grunt) {
 	})(SASS_COMPILER_DEFAULT);
 
 	grunt.registerTask('default', ['dist-css', 'core']);
-	grunt.registerTask('sass-compile', ['sass:core']);
+	grunt.registerTask('sass-compile', ['sass']);
 	grunt.registerTask('dist-css', ['sass-compile', 'postcss:core', 'cssmin:core']);
 
 	// Full distribution task.
