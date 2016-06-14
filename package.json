@@ -1,6 +1,6 @@
 {
 	"name": "ws-base",
-	"description": "Basic frontend development setup (incl. jQuery, Bootstrap 4, GSAP)",
+	"description": "Basic frontend development setup",
 	"version": "1.0.0",
 	"private": true,
 	"homepage": "http://www.weigelstein.de",
@@ -34,16 +34,6 @@
 			  		"dest": "public/js"
 			  	},
 			  	"vendor": {
-			  		"src": [
-				  		"../vendor/jquery/1.12.4/jquery.js",
-					  	"../vendor/tether/1.3.0/tether.js",
-					  	"../vendor/bootstrap/4.0.0/bootstrap.js",
-					  	"../vendor/gsap/1.18.4/TweenMax.js",
-					  	"../vendor/imagesloaded/4.1.0/imagesloaded.js",
-					  	"../vendor/waypoints/4.0.0/jquery.waypoints.js",
-					  	"../vendor/modernizr/2.6.2/modernizr.min.js",
-					  	"../vendor/enquire/2.1.0/enquire.js"
-			  		],
 			  		"dest": "public/js/vendor"
 			  	}
 		  	},
@@ -54,8 +44,8 @@
 		"Gruntfile.js",
 		"grunt/*.js",
     	"grunt/*.json",
-    	"scss/**/*.scss",
     	"public",
+		"public/scss/**/*.scss",
 		"LICENSE"
   	],
   	"dependencies": {

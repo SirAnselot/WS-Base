@@ -1,6 +1,6 @@
 module.exports = function (grunt) {
 	'use strict';
-	
+
 	var SASS_COMPILER_DEFAULT = 'libsass'; // oder 'sass' (viel langsamer)
 
 	// Force use of Unix newlines
@@ -49,18 +49,25 @@ module.exports = function (grunt) {
 	var generateCommonJSModule = require('./grunt/bs-commonjs-generator.js');
   	var configBridge = grunt.file.readJSON('./grunt/configBridge.json', { encoding: 'utf8' });
 
-	Object.keys(configBridge.paths).forEach(function (key) {
-		configBridge.paths[key].forEach(function (val, i, arr) {
-	    	arr[i] = path.join('./docs/assets', val);
-		});
+	var vendorlist = '';
+	configBridge.paths.vendor.forEach(function (val, i, arr) {
+		vendorlist += ' * – ' + val.split('vendor/')[1] + '\n';
 	});
-	
+
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		banner: '/*!\n' +
-            	' * WSUX v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
-            	' * Copyright 2016-<%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
+            	' * VendorJS Compiler v<%= pkg.version %>\n' +
+            	' * Compiled <%= grunt.template.today("yyyy-mm-dd") %> by <%= pkg.author %> (<%= pkg.homepage %>)\n' +
+				' * \n' +
+				' * Included vendors:\n' +
+				' * --------------------------------------------------\n' +
+				vendorlist +
+				' * --------------------------------------------------\n' +
             	' */\n',
+		clean: {
+			dist: 'public',
+		},
 		// JS build configuration
 		lineremover: {
 		  	es6Import: {
@@ -73,18 +80,16 @@ module.exports = function (grunt) {
 				}
 		  	}
 		},
-		
 		stamp: {
 	      	options: {
 	        	banner: '<%= banner %>\n'
 	      	},
-	      	core: {
+	      	vendor: {
 	        	files: {
-	          		src: '<%= concat.core.dest %>'
+	          		src: '<%= concat.vendor.dest %>'
 	        	}
 	      	}
 	    },
-
 		concat: {
 	      	options: {
 	        	stripBanners: false
@@ -94,11 +99,10 @@ module.exports = function (grunt) {
 	        	dest: '<%= pkg.config.files.js.app.dest %>/<%= pkg.config.client %>.js'
 	      	},
 	      	vendor: {
-	        	src:  '<%= pkg.config.files.js.vendor.src %>',
+	        	src:  configBridge.paths.vendor,
 	        	dest: '<%= pkg.config.files.js.vendor.dest %>/vendor.js'
 	      	}
 	    },
-
 	    uglify: {
 		    options: {
 		        compress: {
@@ -182,11 +186,11 @@ module.exports = function (grunt) {
 			}
 		}
 	});
-	require('load-grunt-tasks')(grunt, { 
-		scope: 'devDependencies', 
+	require('load-grunt-tasks')(grunt, {
+		scope: 'devDependencies',
 		pattern: [
-			'grunt-*', 
-			'!grunt-sass', 
+			'grunt-*',
+			'!grunt-sass',
 			'!grunt-contrib-sass'
 		]
 	});
@@ -194,8 +198,8 @@ module.exports = function (grunt) {
 
 	// JS distribution task.
 	grunt.registerTask('vendor', ['concat:vendor','uglify:vendor']);
-	grunt.registerTask('core', ['concat:core','lineremover','stamp']);
-  	grunt.registerTask('dist-js', ['concat','lineremover','stamp','uglify:vendor']);
+	grunt.registerTask('core', ['concat:core','lineremover']);
+  	grunt.registerTask('dist-js', ['concat','lineremover','stamp:vendor','uglify:vendor']);
 
 	// CSS distribution task.
 	// Supported Compilers: sass (Ruby) and libsass.
@@ -203,11 +207,10 @@ module.exports = function (grunt) {
 		require('./grunt/bs-sass-compile/' + sassCompiler + '.js')(grunt);
 	})(SASS_COMPILER_DEFAULT);
 
-	grunt.registerTask('default', ['dist-css', 'concat:core', 'stamp']);
+	grunt.registerTask('default', ['dist-css', 'core']);
 	grunt.registerTask('sass-compile', ['sass:core']);
 	grunt.registerTask('dist-css', ['sass-compile', 'postcss:core', 'cssmin:core']);
 
 	// Full distribution task.
   	grunt.registerTask('dist', ['dist-css', 'dist-js']);
 };
-
