@@ -217,7 +217,6 @@ module.exports = function (grunt) {
 	// JS distribution task.
 	grunt.registerTask('vendor', ['concat:vendor','lineremover','stamp:vendor','uglify:vendor']);
 	grunt.registerTask('core', ['concat:core','lineremover']);
-  	// grunt.registerTask('dist-js', ['concat','lineremover','stamp:vendor','uglify:vendor']);
 	grunt.registerTask('dist-js', ['vendor','core']);
 
 	// CSS distribution task.
