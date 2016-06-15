@@ -46,9 +46,8 @@ module.exports = function (grunt) {
 		]
 	});
 
-	var generateCommonJSModule = require('./grunt/bs-commonjs-generator.js');
+	// var generateCommonJSModule = require('./grunt/bs-commonjs-generator.js');
   	var configBridge = grunt.file.readJSON('./grunt/configBridge.json', { encoding: 'utf8' });
-
 	var vendorlist = '';
 	configBridge.paths.vendor.forEach(function (val, i, arr) {
 		vendorlist += ' * – ' + val.split('vendor/')[1] + '\n';
@@ -68,6 +67,7 @@ module.exports = function (grunt) {
 		clean: {
 			dist: 'public',
 		},
+
 		// JS build configuration
 		lineremover: {
 		  	es6Import: {
@@ -143,6 +143,14 @@ module.exports = function (grunt) {
 				}
 			}
 		},
+		scsslint: {
+	      	options: {
+	        	bundleExec: true,
+	        	config: '<%= pkg.config.files.scss %>/.scss-lint.yml',
+	        	reporterOutput: null
+	      	},
+	      	src: ['<%= pkg.config.files.scss %>/<%= pkg.config.client %>/*.scss','<%= pkg.config.files.scss %>/*.scss']
+	    },
 		postcss: {
 			core: {
 				options: {
@@ -155,6 +163,17 @@ module.exports = function (grunt) {
 				src: '<%= pkg.dist %>/css/*.css'
 			},
 		},
+		csscomb: {
+	      	options: {
+	        	config: '<%= pkg.config.files.scss %>/.csscomb.json'
+	      	},
+	      	core: {
+	        	expand: true,
+	        	cwd: '<%= pkg.dist %>/css/',
+	        	src: ['*.css', '!*.min.css'],
+	        	dest: '<%= pkg.dist %>/css/'
+	      	}
+	    },
 		cssmin: {
 			options: {
 				compatibility: 'ie9',
@@ -196,9 +215,10 @@ module.exports = function (grunt) {
 	require('time-grunt')(grunt);
 
 	// JS distribution task.
-	grunt.registerTask('vendor', ['concat:vendor','uglify:vendor']);
+	grunt.registerTask('vendor', ['concat:vendor','lineremover','stamp:vendor','uglify:vendor']);
 	grunt.registerTask('core', ['concat:core','lineremover']);
-  	grunt.registerTask('dist-js', ['concat','lineremover','stamp:vendor','uglify:vendor']);
+  	// grunt.registerTask('dist-js', ['concat','lineremover','stamp:vendor','uglify:vendor']);
+	grunt.registerTask('dist-js', ['vendor','core']);
 
 	// CSS distribution task.
 	// Supported Compilers: sass (Ruby) and libsass.
@@ -206,10 +226,11 @@ module.exports = function (grunt) {
 		require('./grunt/bs-sass-compile/' + sassCompiler + '.js')(grunt);
 	})(SASS_COMPILER_DEFAULT);
 
+	grunt.registerTask('test-scss', ['scsslint']);
 	grunt.registerTask('default', ['dist-css', 'core']);
 	grunt.registerTask('sass-compile', ['sass']);
-	grunt.registerTask('dist-css', ['sass-compile', 'postcss:core', 'cssmin:core']);
+	grunt.registerTask('dist-css', ['sass-compile','postcss:core','cssmin:core']);
 
 	// Full distribution task.
-  	grunt.registerTask('dist', ['dist-css', 'dist-js']);
+  	grunt.registerTask('dist', ['dist-css','csscomb:core','dist-js']);
 };

@@ -17,7 +17,7 @@
 // @import "custom/glyphiconspro";
 
 /* ENTYPO ICONS
- * @see:    /fonts/entypo-preview/   
+ * @see:    /fonts/entypo-preview/
  */
 @import "custom/entypo";
 
@@ -64,6 +64,30 @@
 @import "bs_4.0.0/utilities-spacing";
 @import "bs_4.0.0/utilities-responsive";
 
+body {
+    padding-top: 100px;
+}
+.page {
+    min-height: 100%;
+    width: 100%;
+}
+.navbar {
+
+}
+.navbar-light .navbar-brand {
+    color: $brand-primary;
+}
+#navbarTop {
+    margin: 0 auto;
+    max-width: 75em;
+    > .navbar-nav {
+        text-align: center;
+        > li {
+            display: inline-block;
+            float: none;
+        }
+    }
+}
 // MEDIA QUERIES (samples)
 
 // Extra small devices (portrait phones, less than 34em)
