@@ -4,55 +4,55 @@
 	"version": "1.0.0",
 	"private": true,
 	"homepage": "http://www.weigelstein.de",
-  	"author": "Ansgar Hiller <ansgar@weigelstein.de>",
-  	"scripts": {
-    "change-version": "node grunt/change-version.js",
-    	"test": "grunt test"
-  	},
-  	"license": "MIT",
+	"author": "Ansgar Hiller <ansgar@weigelstein.de>",
+	"scripts": {
+		"change-version": "node grunt/change-version.js",
+		"test": "grunt test"
+	},
+	"license": "MIT",
 	"keywords": [
 		"css",
-    	"js",
-    	"sass",
-    	"mobile-first",
-    	"responsive",
-    	"bootstrap",
-    	"gsap",
-    	"web"
+		"js",
+		"sass",
+		"mobile-first",
+		"responsive",
+		"bootstrap",
+		"gsap",
+		"web"
 	],
 	"main": "public",
-  	"dist": "public",
-  	"config": {
-  		"client": "custom",
-  		"files": {
-  			"js": {
-			  	"app": {
-			  		"src": [
-			  			"public/js/app/ws/pointerManager.js",
-			  			"public/js/app/app.js"
-			  		],
-			  		"dest": "public/js"
-			  	},
-			  	"vendor": {
-			  		"dest": "public/js/vendor"
-			  	}
-		  	},
-		  	"scss": "public/scss"
-	  	}
+	"dist": "public",
+	"config": {
+		"client": "custom",
+		"files": {
+			"js": {
+				"app": {
+					"src": [
+						"public/js/app/ws/pointerManager.js",
+						"public/js/app/app.js"
+					],
+					"dest": "public/js"
+				},
+				"vendor": {
+					"dest": "public/js/vendor"
+				}
+			},
+			"scss": "public/scss"
+		}
 	},
-  	"files": [
+	"files": [
 		"Gruntfile.js",
 		"grunt/*.js",
-    	"grunt/*.json",
-    	"public",
+		"grunt/*.json",
+		"public",
 		"public/scss/**/*.scss",
 		"public/scss/*.scss",
 		"LICENSE"
-  	],
-  	"dependencies": {
+	],
+	"dependencies": {
 		"jquery": ">=1.7.1"
-  	},
-  	"devDependencies": {
+	},
+	"devDependencies": {
 		"autoprefixer": "^6.0.3",
 		"babel-eslint": "^4.1.3",
 		"btoa": "~1.1.2",
@@ -93,8 +93,8 @@
 		"node-sass": "^3.7.0",
 		"object-assign": "^4.1.0",
 		"each-async": "^1.0.0"
-  	},
-  	"engines": {
+	},
+	"engines": {
 		"node": ">=0.10.1"
-  	}
+	}
 }
