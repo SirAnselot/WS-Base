@@ -11,15 +11,26 @@
 @import "bs_4.0.0/normalize";
 @import "bs_4.0.0/print";
 
-/* GLYPHICONS ICONS
- * @see:    /fonts/glyphicons-preview/
- */
-// @import "custom/glyphiconspro";
+/* ENTYPO+ ICONS
+ *	--------------
+ * @see: 	/fonts/entypo-preview/index.html
+ *
+ *	Use like so:  <span class="icon-[icon-name]" /></span>
+ 	-----	*/
 
-/* ENTYPO ICONS
- * @see:    /fonts/entypo-preview/
- */
 @import "custom/entypo";
+/*	-----	*/
+
+/*	GLYPHICONS ICONS
+ *	------------------
+ * @see: 	/fonts/glyphicons-preview/index.html
+ *
+ *	!!! But use like so: <span class="glyp-[icon-name]" /></span> instead of <span class="glyphicons glyphicons-[icon-name]" /></span> as suggested by the overview page
+ *	(notice that also no additional scope 'glyphicons' or 'glyp' is needed)
+ 	-----	*/
+
+@import "custom/glyphiconspro";
+/*	-----	*/
 
 // Core CSS
 @import "bs_4.0.0/reboot";
