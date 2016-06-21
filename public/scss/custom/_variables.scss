@@ -22,7 +22,6 @@ $bootstrap-sass-asset-helper: false;
 //
 // Variable format should follow the `$component-modifier-state-property` order.
 
-
 // Colors
 //
 // Grayscale and brand colors for use across Bootstrap.
@@ -32,7 +31,7 @@ $gray-light:                #818a91 !default;
 $gray-lighter:              #eceeef !default;
 $gray-lightest:             #f1f1f1 !default;
 
-$brand-primary:             #91d2eb !default; // Weigelstein Blau
+$brand-primary:             #9b1543 !default; 
 $brand-success:             #5cb85c !default;
 $brand-info:                #5bc0de !default;
 $brand-warning:             #f0ad4e !default;
@@ -83,7 +82,7 @@ $border-width:               1px !default;
 //
 // Settings for the `<body>` element.
 
-$body-bg:                    $gray-light !default;
+$body-bg:                    #FFF !default;
 $body-color:                 $gray-dark !default;
 
 // Links
@@ -179,7 +178,7 @@ $headings-color:             inherit !default;
 $lead-font-size:             1.25rem !default;
 $lead-font-weight:           300 !default;
 
-$text-muted:                  $gray !default;
+$text-muted:                  $gray-light !default;
 
 $abbr-border-color:           $gray-light !default;
 

@@ -65,7 +65,7 @@
 @import "bs_4.0.0/utilities-responsive";
 
 body {
-    padding-top: 100px;
+
 }
 .page {
     min-height: 100%;
@@ -74,20 +74,30 @@ body {
 .navbar {
 
 }
-.navbar-light .navbar-brand {
-    color: $brand-primary;
+.tpl-index {
+	padding-top: 120px;
+	.navbar-brand {
+		color: $brand-primary;
+	}
+	.page {
+		.header,
+		.footer {
+
+		}
+	}
 }
-#navbarTop {
-    margin: 0 auto;
-    max-width: 75em;
-    > .navbar-nav {
-        text-align: center;
-        > li {
-            display: inline-block;
-            float: none;
-        }
-    }
+
+// empty.html
+.tpl-empty {
+	.page {
+		.header,
+		.footer {
+			min-height: 100px;
+			background-color: $gray-lighter;
+		}
+	}
 }
+
 // MEDIA QUERIES (samples)
 
 // Extra small devices (portrait phones, less than 34em)
