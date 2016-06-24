@@ -28,7 +28,7 @@
 			"js": {
 				"app": {
 					"src": [
-						"public/js/app/ws/pointerManager.js",
+						"public/js/app/ws/*.js",
 						"public/js/app/app.js"
 					],
 					"dest": "public/js"

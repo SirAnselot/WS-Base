@@ -47,8 +47,8 @@ module.exports = function (grunt) {
 
 	// var generateCommonJSModule = require('./grunt/bs-commonjs-generator.js');
 	var _package = grunt.file.readJSON('package.json'),
-		 _vendor	 = _package.config.files.js.vendor.src,
-		 _bridge  = grunt.file.readJSON('grunt/vendorBridge.json', { encoding: 'utf8' });
+		_vendor	 = _package.config.files.js.vendor.src,
+		_bridge  = grunt.file.readJSON('grunt/vendorBridge.json', { encoding: 'utf8' });
 
 	var _bannerJSList = '';
 	_bridge.paths.vendor.forEach(function (val, i, arr) {
@@ -68,7 +68,7 @@ module.exports = function (grunt) {
 					' * --------------------------------------------------\n' +
 					' */\n',
 		clean: {
-			dist: 'public/dist',
+			dist: 'dist',
 		},
 
 		// JS build configuration
@@ -79,54 +79,54 @@ module.exports = function (grunt) {
 					'<%= concat.vendor.dest %>': '<%= concat.vendor.dest %>'
 				},
 				options: {
-			  		exclusionPattern: /^(import|export)/g
+					exclusionPattern: /^(import|export)/g
 				}
 		  	}
 		},
 		stamp: {
-	      	options: {
-	        	banner: '<%= banner %>\n'
-	      	},
-	      	vendor: {
-	        	files: {
-	          		src: '<%= concat.vendor.dest %>'
-	        	}
-	      	}
-	    },
+			options: {
+				banner: '<%= banner %>\n'
+			},
+			vendor: {
+				files: {
+					src: '<%= concat.vendor.dest %>'
+				}
+			}
+		},
 		concat: {
-	      	options: {
-	        	stripBanners: false
-	      	},
-	      	core: {
-	        	src:  '<%= pkg.config.files.js.app.src %>',
-	        	dest: '<%= pkg.config.files.js.app.dest %>/<%= pkg.config.client %>.js'
-	      	},
-	      	vendor: {
-	        	src:  _bridge.paths.vendor,
-	        	dest: '<%= pkg.config.files.js.vendor.dest %>/vendor.js'
-	      	}
-	    },
-	    uglify: {
-		    options: {
-		        compress: {
-		         	warnings: false
-		        },
-		        mangle: true,
-		        preserveComments: /^!|@preserve|@license|@cc_on/i
-		   	},
-		    core: {
-	        	src:  '<%= concat.core.dest %>',
-	        	dest: '<%= pkg.dist %>/js/<%= pkg.client %>.min.js'
-	      	},
-	      	vendor: {
-	        	src: '<%= concat.vendor.dest %>',
-	        	dest: '<%= pkg.config.files.js.vendor.dest %>/vendor.min.js'
-	      	}
-    	},
+			options: {
+				stripBanners: false
+			},
+			core: {
+				src:  '<%= pkg.config.files.js.app.src %>',
+				dest: '<%= pkg.config.files.js.app.dest %>/<%= pkg.config.client %>.js'
+			},
+			vendor: {
+				src:  _bridge.paths.vendor,
+				dest: '<%= pkg.config.files.js.vendor.dest %>/vendor.js'
+			}
+		},
+		uglify: {
+			options: {
+				compress: {
+					warnings: false
+				},
+				mangle: true,
+				preserveComments: /^!|@preserve|@license|@cc_on/i
+			},
+			core: {
+				src:  '<%= concat.core.dest %>',
+				dest: '<%= pkg.dist %>/js/<%= pkg.config.client %>.min.js'
+			},
+			vendor: {
+				src: '<%= concat.vendor.dest %>',
+				dest: '<%= pkg.config.files.js.vendor.dest %>/vendor.min.js'
+			}
+		},
 		sass: {
 			compile: {
 				files: {
-					'<%= pkg.dist %>/css/<%= pkg.client %>.css': '<%= pkg.config.files.scss %>/<%= pkg.client %>.scss',
+					'<%= pkg.dist %>/css/<%= pkg.config.client %>.css': '<%= pkg.config.files.scss %>/<%= pkg.config.client %>.scss',
 				}
 			},
 			sourceMap: {
@@ -147,13 +147,13 @@ module.exports = function (grunt) {
 			}
 		},
 		scsslint: {
-	      	options: {
-	        	bundleExec: true,
-	        	config: '<%= pkg.config.files.scss %>/.scss-lint.yml',
-	        	reporterOutput: null
-	      	},
-	      	src: ['<%= pkg.config.files.scss %>/<%= pkg.config.client %>/*.scss','<%= pkg.config.files.scss %>/*.scss']
-	    },
+			options: {
+				bundleExec: true,
+				config: '<%= pkg.config.files.scss %>/.scss-lint.yml',
+				reporterOutput: null
+			},
+			src: ['<%= pkg.config.files.scss %>/<%= pkg.config.client %>/*.scss','<%= pkg.config.files.scss %>/*.scss']
+		},
 		postcss: {
 			core: {
 				options: {
@@ -167,16 +167,16 @@ module.exports = function (grunt) {
 			},
 		},
 		csscomb: {
-	      	options: {
-	        	config: '<%= pkg.config.files.scss %>/.csscomb.json'
-	      	},
-	      	core: {
-	        	expand: true,
-	        	cwd: '<%= pkg.dist %>/css/',
-	        	src: ['*.css', '!*.min.css'],
-	        	dest: '<%= pkg.dist %>/css/'
-	      	}
-	    },
+			options: {
+				config: '<%= pkg.config.files.scss %>/.csscomb.json'
+			},
+			core: {
+				expand: true,
+				cwd: '<%= pkg.dist %>/css/',
+				src: ['*.css', '!*.min.css'],
+				dest: '<%= pkg.dist %>/css/'
+			}
+		},
 		cssmin: {
 			options: {
 				compatibility: 'ie9',
@@ -202,8 +202,8 @@ module.exports = function (grunt) {
 				tasks: 'dist-css'
 			},
 			js: {
-				files: ['<%= pkg.dist %>/js/app/**/*.js','<%= pkg.dist %>/js/app/*.js'],
-				tasks: 'core'
+				files: ['<%= pkg.dist %>/js/app/**/*.js','<%= pkg.dist %>/js/app/*.js','grunt/vendorBridge.json'],
+				tasks: 'dist-js'
 			}
 		}
 	});
