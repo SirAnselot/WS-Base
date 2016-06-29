@@ -131,7 +131,7 @@ module.exports = function (grunt) {
 			},
 			sourceMap: {
 				options: {
-					sourceMap: '<%= pkg.dist %>/css/<%= pkg.config.client %>.map'
+					sourceMap: '<%= pkg.config.files.scss %>/<%= pkg.config.client %>.map'
 				},
 				files: {
 					'<%= pkg.dist %>/css/<%= pkg.config.client %>.css': '<%= pkg.config.files.scss %>/<%= pkg.config.client %>.scss'
@@ -152,7 +152,7 @@ module.exports = function (grunt) {
 				config: '<%= pkg.config.files.scss %>/.scss-lint.yml',
 				reporterOutput: null
 			},
-			src: ['<%= pkg.config.files.scss %>/<%= pkg.config.client %>/*.scss','<%= pkg.config.files.scss %>/*.scss']
+			src: ['<%= pkg.config.files.scss %>/<%= pkg.config.client %>.scss']
 		},
 		postcss: {
 			core: {
