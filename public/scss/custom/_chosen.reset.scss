@@ -1,0 +1,126 @@
+/*
+ * CHOSEN.RESET
+ * reset default chosen.css to make custom skinning less annoying and timeconsuming
+ */
+.chosen-container {
+   font-size: inherit;
+   box-shadow: none !important;
+   font-family: $font-family-sans-serif;
+   font-weight: 500;
+   & {
+      .chosen-drop {
+         border-image: none !important;
+         box-shadow: none !important;
+         border: none;
+         text-transform: none;
+      }
+      .chosen-results {
+         margin: 0;
+         padding: 0 0.5rem 1rem 0.5rem;
+      }
+      .chosen-results li {
+         padding: 0.5rem 0.5rem;
+         &.highlighted, &.selected {
+            background-image: none !important;
+            &.active {
+               background-image: none !important;
+            }
+         }
+         &, &.highlighted, &.selected {
+            &.active {
+
+            }
+         }
+      }
+   }
+   &.chosen-container-single {
+      .chosen-drop {
+         border-radius: 0;
+      }
+      & {
+         > .chosen-single {
+            box-shadow: none !important;
+            background-image: none !important;
+            border-radius: 0;
+            margin: 0;
+            height: auto;
+            padding: 0.2rem 1rem;
+            color: $gray-darker;
+            border: 1px solid $gray-light;
+            background-color: $gray-light;
+            transition: background 0.1s linear, border 0.1s linear, color 0.1s linear;
+            > div b {
+               background-image: none !important;
+               background: none !important;
+               &:before {
+                  content: '';
+                  position: absolute;
+                  @include caret-down(6px, $gray-darker);
+                  top:  0.85rem;
+                  right: 1rem;
+               }
+            }
+            &:hover, &:focus, &.active {
+               color: $brand-primary;
+               background-color: $white;
+               border-color: $white;
+               > div b {
+                  &:before {
+                     @include caret-down(6px, $brand-primary);
+                  }
+               }
+            }
+            @media
+               only screen and (min-resolution: 192dpi),
+               only screen and (min-resolution: 2dppx)
+            {
+               > div b {
+                  background-image: none !important;
+                  background: none !important;
+               }
+            }
+         }
+      }
+      &.chosen-with-drop {
+         // stuff only visible when dropdown open
+      }
+      &.chosen-container-active {
+         &.chosen-with-drop {
+            z-index: $zindex-modal;
+            .chosen-single {
+               color: $brand-primary;
+               background-color: $white;
+               border-color: $white;
+               > div b {
+                  background-image: none !important;
+                  background: none !important;
+                  &:before {
+                     border: none;
+                     @include caret-up(6px, $brand-primary);
+                  }
+               }
+               @media
+                  only screen and (min-resolution: 192dpi),
+                  only screen and (min-resolution: 2dppx)
+               {
+                  > div b {
+                     background-image: none !important;
+                     background: none !important;
+                  }
+               }
+            }
+         }
+         .chosen-search {
+            margin: 8px;
+            padding: 0px;
+            background-color: $gray-lighter;
+            border: 1px solid $gray-light;
+            > input {
+               color: $gray-dark;
+               padding: 0.35rem 0.5rem;
+               border: none;
+            }
+         }
+      }
+   }
+}
