@@ -37,7 +37,7 @@
 					"dest": "public/js/vendor"
 				}
 			},
-			"scss": "public/scss"
+			"scss": "scss"
 		}
 	},
 	"files": [
@@ -45,8 +45,8 @@
 		"grunt/*.js",
 		"grunt/*.json",
 		"public",
-		"public/scss/**/*.scss",
-		"public/scss/*.scss",
+		"scss/**/*.scss",
+		"scss/*.scss",
 		"LICENSE"
 	],
 	"dependencies": {
