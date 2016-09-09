@@ -1,0 +1,967 @@
+//
+// Glyphicons
+//
+// Since icons are fonts, they can be placed anywhere text is placed and are
+// thus automatically sized to match the surrounding child. To use, create an
+// inline element with the appropriate classes, like so:
+//
+// <a href="#"><i class="glyphicon glyphglyp-star"></i> Star</a>
+$glyp-glyp-font-path: "../fonts/glyphicons/" !default;
+//** File name for all font files.
+$glyp-glyp-font-name: "glyphicons-regular" !default;
+//** Element ID within SVG icon file.
+$glyp-glyp-font-svg-id: "glyphiconsregular" !default;
+
+
+// Import the fonts
+@font-face {
+	font-family: 'Glyphicons Regular';
+	src: url(if($bootstrap-sass-asset-helper, glyp-font-path('#{$glyp-glyp-font-path}#{$glyp-font-name}.eot'), '#{$glyp-glyp-font-path}#{$glyp-glyp-font-name}.eot'));
+	src: url(if($bootstrap-sass-asset-helper, glyp-font-path('#{$glyp-glyp-font-path}#{$glyp-font-name}.eot?#iefix'), '#{$glyp-glyp-font-path}#{$glyp-glyp-font-name}.eot?#iefix')) format('embedded-opentype'),
+        url(if($bootstrap-sass-asset-helper, glyp-font-path('#{$glyp-glyp-font-path}#{$glyp-font-name}.woff2'), '#{$glyp-glyp-font-path}#{$glyp-glyp-font-name}.woff2')) format('woff2'),
+        url(if($bootstrap-sass-asset-helper, glyp-font-path('#{$glyp-glyp-font-path}#{$glyp-font-name}.woff'), '#{$glyp-glyp-font-path}#{$glyp-glyp-font-name}.woff')) format('woff'),
+        url(if($bootstrap-sass-asset-helper, glyp-font-path('#{$glyp-glyp-font-path}#{$glyp-font-name}.ttf'), '#{$glyp-glyp-font-path}#{$glyp-glyp-font-name}.ttf')) format('truetype'),
+        url(if($bootstrap-sass-asset-helper, glyp-font-path('#{$glyp-glyp-font-path}#{$glyp-font-name}.svg##{$glyp-glyp-font-svg-id}'),'#{$glyp-glyp-font-path}#{$glyp-glyp-font-name}.svg##{$glyp-glyp-font-svg-id}')) format('svg');
+}
+
+
+[class^="glyp-"]:before, [class*="glyp-"]:before {
+
+	font-family: 'Glyphicons Regular';
+	font-style: normal;
+	font-weight: normal;
+	speak: none;
+
+	display: inline-block;
+	text-decoration: inherit;
+	width: 1em;
+	margin-right: .2em;
+	text-align: center;
+	/* opacity: .8; */
+
+	/* For safety - reset parent styles, that can break glyph codes*/
+	font-variant: normal;
+	text-transform: none;
+
+	/* fix buttons height, for twitter bootstrap */
+	line-height: 1;
+
+	/* Animation center compensation - margins should be symmetric */
+	/* remove if not needed */
+
+	/* you can be more comfortable with increased icons size */
+	font-size: 120%;
+
+	/* Font smoothing. That was taken from TWBS */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	/* Uncomment for 3D effect */
+	// text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3);
+}
+
+// Catchall baseclass
+.glyphicons {
+  //position: relative;
+  //top: 1px;
+  //display: inline-block;
+  display: inline-block;
+  font-family: 'Glyphicons Regular';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  vertical-align:top;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &:before{
+    display:inline-block;
+    padding:6px 8px;
+  }
+}
+.glyphicons.x05{
+  font-size:12px;
+}
+.glyphicons.x2{
+  font-size:48px;
+
+  &:before{
+    padding:8px 12px;
+  }
+}
+.glyphicons.x3{
+  font-size:72px;
+
+  &:before{
+    padding:16px 20px;
+  }
+}
+.glyphicons.x4{
+  font-size:96px;
+
+  &:before{
+    padding:20px 28px;
+  }
+}
+.glyphicons.x5{
+  font-size:120px;
+
+  &:before{
+    padding:28px 36px;
+  }
+}
+
+
+// Light
+.glyphicons.light{
+  &:before{
+    color:#f2f2f2
+  }
+}
+
+// Drop shadow
+.glyphicons.drop{
+  &:before{
+    text-shadow: -1px 1px 3px rgba(0,0,0,0.3);
+  }
+}
+
+// Horizontal Flip
+.glyphicons.flip{
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
+.glyphicons.flipv{
+  -moz-transform: scaleY(-1);
+  -o-transform: scaleY(-1);
+  -webkit-transform: scaleY(-1);
+  transform: scaleY(-1);
+  filter: FlipV;
+  -ms-filter: "FlipV";
+}
+
+// Rotate
+.glyphicons.rotate90{
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.glyphicons.rotate180{
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.glyphicons.rotate270{
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
+// Individual icons
+.glyp-glass{ &:before{ content:"\E001";} }
+.glyp-leaf{ &:before{ content:"\E002";} }
+.glyp-dog{ &:before{ content:"\E003";} }
+.glyp-user{ &:before{ content:"\E004";} }
+.glyp-girl{ &:before{ content:"\E005";} }
+.glyp-car{ &:before{ content:"\E006";} }
+.glyp-user-add{ &:before{ content:"\E007";} }
+.glyp-user-remove{ &:before{ content:"\E008";} }
+.glyp-film{ &:before{ content:"\E009";} }
+.glyp-magic{ &:before{ content:"\E010";} }
+.glyp-envelope{ &:before{ content:"\E011";} }
+.glyp-camera{ &:before{ content:"\E012";} }
+.glyp-heart{ &:before{ content:"\E013";} }
+.glyp-beach-umbrella{ &:before{ content:"\E014";} }
+.glyp-train{ &:before{ content:"\E015";} }
+.glyp-print{ &:before{ content:"\E016";} }
+.glyp-bin{ &:before{ content:"\E017";} }
+.glyp-music{ &:before{ content:"\E018";} }
+.glyp-music-alt{ &:before{ content:"\E019";} }
+.glyp-heart-empty{ &:before{ content:"\E020";} }
+.glyp-home{ &:before{ content:"\E021";} }
+.glyp-snowflake{ &:before{ content:"\E022";} }
+.glyp-fire{ &:before{ content:"\E023";} }
+.glyp-magnet{ &:before{ content:"\E024";} }
+.glyp-parents{ &:before{ content:"\E025";} }
+.glyp-binoculars{ &:before{ content:"\E026";} }
+.glyp-road{ &:before{ content:"\E027";} }
+.glyp-search{ &:before{ content:"\E028";} }
+.glyp-cars{ &:before{ content:"\E029";} }
+.glyp-notes-2{ &:before{ content:"\E030";} }
+.glyp-pencil{ &:before{ content:"\E031";} }
+.glyp-bus{ &:before{ content:"\E032";} }
+.glyp-wifi-alt{ &:before{ content:"\E033";} }
+.glyp-luggage{ &:before{ content:"\E034";} }
+.glyp-old-man{ &:before{ content:"\E035";} }
+.glyp-woman{ &:before{ content:"\E036";} }
+.glyp-file{ &:before{ content:"\E037";} }
+.glyp-coins{ &:before{ content:"\E038";} }
+.glyp-plane{ &:before{ content:"\E039";} }
+.glyp-notes{ &:before{ content:"\E040";} }
+.glyp-stats{ &:before{ content:"\E041";} }
+.glyp-charts{ &:before{ content:"\E042";} }
+.glyp-pie-chart{ &:before{ content:"\E043";} }
+.glyp-group{ &:before{ content:"\E044";} }
+.glyp-keys{ &:before{ content:"\E045";} }
+.glyp-calendar{ &:before{ content:"\E046";} }
+.glyp-router{ &:before{ content:"\E047";} }
+.glyp-camera-small{ &:before{ content:"\E048";} }
+.glyp-star-empty{ &:before{ content:"\E049";} }
+.glyp-star{ &:before{ content:"\E050";} }
+.glyp-link{ &:before{ content:"\E051";} }
+.glyp-eye-open{ &:before{ content:"\E052";} }
+.glyp-eye-close{ &:before{ content:"\E053";} }
+.glyp-alarm{ &:before{ content:"\E054";} }
+.glyp-clock{ &:before{ content:"\E055";} }
+.glyp-stopwatch{ &:before{ content:"\E056";} }
+.glyp-projector{ &:before{ content:"\E057";} }
+.glyp-history{ &:before{ content:"\E058";} }
+.glyp-truck{ &:before{ content:"\E059";} }
+.glyp-cargo{ &:before{ content:"\E060";} }
+.glyp-compass{ &:before{ content:"\E061";} }
+.glyp-keynote{ &:before{ content:"\E062";} }
+.glyp-paperclip{ &:before{ content:"\E063";} }
+.glyp-power{ &:before{ content:"\E064";} }
+.glyp-lightbulb{ &:before{ content:"\E065";} }
+.glyp-tag{ &:before{ content:"\E066";} }
+.glyp-tags{ &:before{ content:"\E067";} }
+.glyp-cleaning{ &:before{ content:"\E068";} }
+.glyp-ruler{ &:before{ content:"\E069";} }
+.glyp-gift{ &:before{ content:"\E070";} }
+.glyp-umbrella{ &:before{ content:"\E071";} }
+.glyp-book{ &:before{ content:"\E072";} }
+.glyp-bookmark{ &:before{ content:"\E073";} }
+.glyp-wifi{ &:before{ content:"\E074";} }
+.glyp-cup{ &:before{ content:"\E075";} }
+.glyp-stroller{ &:before{ content:"\E076";} }
+.glyp-headphones{ &:before{ content:"\E077";} }
+.glyp-headset{ &:before{ content:"\E078";} }
+.glyp-warning-sign{ &:before{ content:"\E079";} }
+.glyp-signal{ &:before{ content:"\E080";} }
+.glyp-retweet{ &:before{ content:"\E081";} }
+.glyp-refresh{ &:before{ content:"\E082";} }
+.glyp-roundabout{ &:before{ content:"\E083";} }
+.glyp-random{ &:before{ content:"\E084";} }
+.glyp-heat{ &:before{ content:"\E085";} }
+.glyp-repeat{ &:before{ content:"\E086";} }
+.glyp-display{ &:before{ content:"\E087";} }
+.glyp-log-book{ &:before{ content:"\E088";} }
+.glyp-address-book{ &:before{ content:"\E089";} }
+.glyp-building{ &:before{ content:"\E090";} }
+.glyp-eyedropper{ &:before{ content:"\E091";} }
+.glyp-adjust{ &:before{ content:"\E092";} }
+.glyp-tint{ &:before{ content:"\E093";} }
+.glyp-crop{ &:before{ content:"\E094";} }
+.glyp-vector-path-square{ &:before{ content:"\E095";} }
+.glyp-vector-path-circle{ &:before{ content:"\E096";} }
+.glyp-vector-path-polygon{ &:before{ content:"\E097";} }
+.glyp-vector-path-line{ &:before{ content:"\E098";} }
+.glyp-vector-path-curve{ &:before{ content:"\E099";} }
+.glyp-vector-path-all{ &:before{ content:"\E100";} }
+.glyp-font{ &:before{ content:"\E101";} }
+.glyp-italic{ &:before{ content:"\E102";} }
+.glyp-bold{ &:before{ content:"\E103";} }
+.glyp-text-underline{ &:before{ content:"\E104";} }
+.glyp-text-strike{ &:before{ content:"\E105";} }
+.glyp-text-height{ &:before{ content:"\E106";} }
+.glyp-text-width{ &:before{ content:"\E107";} }
+.glyp-text-resize{ &:before{ content:"\E108";} }
+.glyp-left-indent{ &:before{ content:"\E109";} }
+.glyp-right-indent{ &:before{ content:"\E110";} }
+.glyp-align-left{ &:before{ content:"\E111";} }
+.glyp-align-center{ &:before{ content:"\E112";} }
+.glyp-align-right{ &:before{ content:"\E113";} }
+.glyp-justify{ &:before{ content:"\E114";} }
+.glyp-list{ &:before{ content:"\E115";} }
+.glyp-text-smaller{ &:before{ content:"\E116";} }
+.glyp-text-bigger{ &:before{ content:"\E117";} }
+.glyp-embed{ &:before{ content:"\E118";} }
+.glyp-embed-close{ &:before{ content:"\E119";} }
+.glyp-table{ &:before{ content:"\E120";} }
+.glyp-message-full{ &:before{ content:"\E121";} }
+.glyp-message-empty{ &:before{ content:"\E122";} }
+.glyp-message-in{ &:before{ content:"\E123";} }
+.glyp-message-out{ &:before{ content:"\E124";} }
+.glyp-message-plus{ &:before{ content:"\E125";} }
+.glyp-message-minus{ &:before{ content:"\E126";} }
+.glyp-message-ban{ &:before{ content:"\E127";} }
+.glyp-message-flag{ &:before{ content:"\E128";} }
+.glyp-message-lock{ &:before{ content:"\E129";} }
+.glyp-message-new{ &:before{ content:"\E130";} }
+.glyp-inbox{ &:before{ content:"\E131";} }
+.glyp-inbox-plus{ &:before{ content:"\E132";} }
+.glyp-inbox-minus{ &:before{ content:"\E133";} }
+.glyp-inbox-lock{ &:before{ content:"\E134";} }
+.glyp-inbox-in{ &:before{ content:"\E135";} }
+.glyp-inbox-out{ &:before{ content:"\E136";} }
+.glyp-cogwheel{ &:before{ content:"\E137";} }
+.glyp-cogwheels{ &:before{ content:"\E138";} }
+.glyp-picture{ &:before{ content:"\E139";} }
+.glyp-adjust-alt{ &:before{ content:"\E140";} }
+.glyp-database-lock{ &:before{ content:"\E141";} }
+.glyp-database-plus{ &:before{ content:"\E142";} }
+.glyp-database-minus{ &:before{ content:"\E143";} }
+.glyp-database-ban{ &:before{ content:"\E144";} }
+.glyp-folder-open{ &:before{ content:"\E145";} }
+.glyp-folder-plus{ &:before{ content:"\E146";} }
+.glyp-folder-minus{ &:before{ content:"\E147";} }
+.glyp-folder-lock{ &:before{ content:"\E148";} }
+.glyp-folder-flag{ &:before{ content:"\E149";} }
+.glyp-folder-new{ &:before{ content:"\E150";} }
+.glyp-edit{ &:before{ content:"\E151";} }
+.glyp-new-window{ &:before{ content:"\E152";} }
+.glyp-check{ &:before{ content:"\E153";} }
+.glyp-unchecked{ &:before{ content:"\E154";} }
+.glyp-more-windows{ &:before{ content:"\E155";} }
+.glyp-show-big-thumbnails{ &:before{ content:"\E156";} }
+.glyp-show-thumbnails{ &:before{ content:"\E157";} }
+.glyp-show-thumbnails-with-lines{ &:before{ content:"\E158";} }
+.glyp-show-lines{ &:before{ content:"\E159";} }
+.glyp-playlist{ &:before{ content:"\E160";} }
+.glyp-imac{ &:before{ content:"\E161";} }
+.glyp-macbook{ &:before{ content:"\E162";} }
+.glyp-ipad{ &:before{ content:"\E163";} }
+.glyp-iphone{ &:before{ content:"\E164";} }
+.glyp-iphone-transfer{ &:before{ content:"\E165";} }
+.glyp-iphone-exchange{ &:before{ content:"\E166";} }
+.glyp-ipod{ &:before{ content:"\E167";} }
+.glyp-ipod-shuffle{ &:before{ content:"\E168";} }
+.glyp-ear-plugs{ &:before{ content:"\E169";} }
+.glyp-record{ &:before{ content:"\E170";} }
+.glyp-step-backward{ &:before{ content:"\E171";} }
+.glyp-fast-backward{ &:before{ content:"\E172";} }
+.glyp-rewind{ &:before{ content:"\E173";} }
+.glyp-play{ &:before{ content:"\E174";} }
+.glyp-pause{ &:before{ content:"\E175";} }
+.glyp-stop{ &:before{ content:"\E176";} }
+.glyp-forward{ &:before{ content:"\E177";} }
+.glyp-fast-forward{ &:before{ content:"\E178";} }
+.glyp-step-forward{ &:before{ content:"\E179";} }
+.glyp-eject{ &:before{ content:"\E180";} }
+.glyp-facetime-video{ &:before{ content:"\E181";} }
+.glyp-download-alt{ &:before{ content:"\E182";} }
+.glyp-mute{ &:before{ content:"\E183";} }
+.glyp-volume-down{ &:before{ content:"\E184";} }
+.glyp-volume-up{ &:before{ content:"\E185";} }
+.glyp-screenshot{ &:before{ content:"\E186";} }
+.glyp-move{ &:before{ content:"\E187";} }
+.glyp-more{ &:before{ content:"\E188";} }
+.glyp-brightness-reduce{ &:before{ content:"\E189";} }
+.glyp-brightness-increase{ &:before{ content:"\E190";} }
+.glyp-plus-sign{ &:before{ content:"\E191";} }
+.glyp-minus-sign{ &:before{ content:"\E192";} }
+.glyp-remove-sign{ &:before{ content:"\E193";} }
+.glyp-ok-sign{ &:before{ content:"\E194";} }
+.glyp-question-sign{ &:before{ content:"\E195";} }
+.glyp-info-sign{ &:before{ content:"\E196";} }
+.glyp-exclamation-sign{ &:before{ content:"\E197";} }
+.glyp-remove-circle{ &:before{ content:"\E198";} }
+.glyp-ok-circle{ &:before{ content:"\E199";} }
+.glyp-ban-circle{ &:before{ content:"\E200";} }
+.glyp-download{ &:before{ content:"\E201";} }
+.glyp-upload{ &:before{ content:"\E202";} }
+.glyp-shopping-cart{ &:before{ content:"\E203";} }
+.glyp-lock{ &:before{ content:"\E204";} }
+.glyp-unlock{ &:before{ content:"\E205";} }
+.glyp-electricity{ &:before{ content:"\E206";} }
+.glyp-ok{ &:before{ content:"\E207";} }
+.glyp-remove{ &:before{ content:"\E208";} }
+.glyp-cart-in{ &:before{ content:"\E209";} }
+.glyp-cart-out{ &:before{ content:"\E210";} }
+.glyp-arrow-left{ &:before{ content:"\E211";} }
+.glyp-arrow-right{ &:before{ content:"\E212";} }
+.glyp-arrow-down{ &:before{ content:"\E213";} }
+.glyp-arrow-up{ &:before{ content:"\E214";} }
+.glyp-resize-small{ &:before{ content:"\E215";} }
+.glyp-resize-full{ &:before{ content:"\E216";} }
+.glyp-circle-arrow-left{ &:before{ content:"\E217";} }
+.glyp-circle-arrow-right{ &:before{ content:"\E218";} }
+.glyp-circle-arrow-top{ &:before{ content:"\E219";} }
+.glyp-circle-arrow-down{ &:before{ content:"\E220";} }
+.glyp-play-button{ &:before{ content:"\E221";} }
+.glyp-unshare{ &:before{ content:"\E222";} }
+.glyp-share{ &:before{ content:"\E223";} }
+.glyp-chevron-right{ &:before{ content:"\E224";} }
+.glyp-chevron-left{ &:before{ content:"\E225";} }
+.glyp-bluetooth{ &:before{ content:"\E226";} }
+.glyp-euro{ &:before{ content:"\E227";} }
+.glyp-usd{ &:before{ content:"\E228";} }
+.glyp-gbp{ &:before{ content:"\E229";} }
+.glyp-retweet-2{ &:before{ content:"\E230";} }
+.glyp-moon{ &:before{ content:"\E231";} }
+.glyp-sun{ &:before{ content:"\E232";} }
+.glyp-cloud{ &:before{ content:"\E233";} }
+.glyp-direction{ &:before{ content:"\E234";} }
+.glyp-brush{ &:before{ content:"\E235";} }
+.glyp-pen{ &:before{ content:"\E236";} }
+.glyp-zoom-in{ &:before{ content:"\E237";} }
+.glyp-zoom-out{ &:before{ content:"\E238";} }
+.glyp-pin{ &:before{ content:"\E239";} }
+.glyp-albums{ &:before{ content:"\E240";} }
+.glyp-rotation-lock{ &:before{ content:"\E241";} }
+.glyp-flash{ &:before{ content:"\E242";} }
+.glyp-map-marker{ &:before{ content:"\E243";} }
+.glyp-anchor{ &:before{ content:"\E244";} }
+.glyp-conversation{ &:before{ content:"\E245";} }
+.glyp-chat{ &:before{ content:"\E246";} }
+.glyp-note-empty{ &:before{ content:"\E247";} }
+.glyp-note{ &:before{ content:"\E248";} }
+.glyp-asterisk{ &:before{ content:"\E249";} }
+.glyp-divide{ &:before{ content:"\E250";} }
+.glyp-snorkel-diving{ &:before{ content:"\E251";} }
+.glyp-scuba-diving{ &:before{ content:"\E252";} }
+.glyp-oxygen-bottle{ &:before{ content:"\E253";} }
+.glyp-fins{ &:before{ content:"\E254";} }
+.glyp-fishes{ &:before{ content:"\E255";} }
+.glyp-boat{ &:before{ content:"\E256";} }
+.glyp-delete{ &:before{ content:"\E257";} }
+.glyp-sheriffs-star{ &:before{ content:"\E258";} }
+.glyp-qrcode{ &:before{ content:"\E259";} }
+.glyp-barcode{ &:before{ content:"\E260";} }
+.glyp-pool{ &:before{ content:"\E261";} }
+.glyp-buoy{ &:before{ content:"\E262";} }
+.glyp-spade{ &:before{ content:"\E263";} }
+.glyp-bank{ &:before{ content:"\E264";} }
+.glyp-vcard{ &:before{ content:"\E265";} }
+.glyp-electrical-plug{ &:before{ content:"\E266";} }
+.glyp-flag{ &:before{ content:"\E267";} }
+.glyp-credit-card{ &:before{ content:"\E268";} }
+.glyp-keyboard-wireless{ &:before{ content:"\E269";} }
+.glyp-keyboard-wired{ &:before{ content:"\E270";} }
+.glyp-shield{ &:before{ content:"\E271";} }
+.glyp-ring{ &:before{ content:"\E272";} }
+.glyp-cake{ &:before{ content:"\E273";} }
+.glyp-drink{ &:before{ content:"\E274";} }
+.glyp-beer{ &:before{ content:"\E275";} }
+.glyp-fast-food{ &:before{ content:"\E276";} }
+.glyp-cutlery{ &:before{ content:"\E277";} }
+.glyp-pizza{ &:before{ content:"\E278";} }
+.glyp-birthday-cake{ &:before{ content:"\E279";} }
+.glyp-tablet{ &:before{ content:"\E280";} }
+.glyp-settings{ &:before{ content:"\E281";} }
+.glyp-bullets{ &:before{ content:"\E282";} }
+.glyp-cardio{ &:before{ content:"\E283";} }
+.glyp-t-shirt{ &:before{ content:"\E284";} }
+.glyp-pants{ &:before{ content:"\E285";} }
+.glyp-sweater{ &:before{ content:"\E286";} }
+.glyp-fabric{ &:before{ content:"\E287";} }
+.glyp-leather{ &:before{ content:"\E288";} }
+.glyp-scissors{ &:before{ content:"\E289";} }
+.glyp-bomb{ &:before{ content:"\E290";} }
+.glyp-skull{ &:before{ content:"\E291";} }
+.glyp-celebration{ &:before{ content:"\E292";} }
+.glyp-tea-kettle{ &:before{ content:"\E293";} }
+.glyp-french-press{ &:before{ content:"\E294";} }
+.glyp-coffee-cup{ &:before{ content:"\E295";} }
+.glyp-pot{ &:before{ content:"\E296";} }
+.glyp-grater{ &:before{ content:"\E297";} }
+.glyp-kettle{ &:before{ content:"\E298";} }
+.glyp-hospital{ &:before{ content:"\E299";} }
+.glyp-hospital-h{ &:before{ content:"\E300";} }
+.glyp-microphone{ &:before{ content:"\E301";} }
+.glyp-webcam{ &:before{ content:"\E302";} }
+.glyp-temple-christianity-church{ &:before{ content:"\E303";} }
+.glyp-temple-islam{ &:before{ content:"\E304";} }
+.glyp-temple-hindu{ &:before{ content:"\E305";} }
+.glyp-temple-buddhist{ &:before{ content:"\E306";} }
+.glyp-bicycle{ &:before{ content:"\E307";} }
+.glyp-life-preserver{ &:before{ content:"\E308";} }
+.glyp-share-alt{ &:before{ content:"\E309";} }
+.glyp-comments{ &:before{ content:"\E310";} }
+.glyp-flower{ &:before{ content:"\E311";} }
+.glyp-baseball{ &:before{ content:"\E312";} }
+.glyp-rugby{ &:before{ content:"\E313";} }
+.glyp-ax{ &:before{ content:"\E314";} }
+.glyp-table-tennis{ &:before{ content:"\E315";} }
+.glyp-bowling{ &:before{ content:"\E316";} }
+.glyp-tree-conifer{ &:before{ content:"\E317";} }
+.glyp-tree-deciduous{ &:before{ content:"\E318";} }
+.glyp-more-items{ &:before{ content:"\E319";} }
+.glyp-sort{ &:before{ content:"\E320";} }
+.glyp-filter{ &:before{ content:"\E321";} }
+.glyp-gamepad{ &:before{ content:"\E322";} }
+.glyp-playing-dices{ &:before{ content:"\E323";} }
+.glyp-calculator{ &:before{ content:"\E324";} }
+.glyp-tie{ &:before{ content:"\E325";} }
+.glyp-wallet{ &:before{ content:"\E326";} }
+.glyp-piano{ &:before{ content:"\E327";} }
+.glyp-sampler{ &:before{ content:"\E328";} }
+.glyp-podium{ &:before{ content:"\E329";} }
+.glyp-soccer-ball{ &:before{ content:"\E330";} }
+.glyp-blog{ &:before{ content:"\E331";} }
+.glyp-dashboard{ &:before{ content:"\E332";} }
+.glyp-certificate{ &:before{ content:"\E333";} }
+.glyp-bell{ &:before{ content:"\E334";} }
+.glyp-candle{ &:before{ content:"\E335";} }
+.glyp-pushpin{ &:before{ content:"\E336";} }
+.glyp-iphone-shake{ &:before{ content:"\E337";} }
+.glyp-pin-flag{ &:before{ content:"\E338";} }
+.glyp-turtle{ &:before{ content:"\E339";} }
+.glyp-rabbit{ &:before{ content:"\E340";} }
+.glyp-globe{ &:before{ content:"\E341";} }
+.glyp-briefcase{ &:before{ content:"\E342";} }
+.glyp-hdd{ &:before{ content:"\E343";} }
+.glyp-thumbs-up{ &:before{ content:"\E344";} }
+.glyp-thumbs-down{ &:before{ content:"\E345";} }
+.glyp-hand-right{ &:before{ content:"\E346";} }
+.glyp-hand-left{ &:before{ content:"\E347";} }
+.glyp-hand-up{ &:before{ content:"\E348";} }
+.glyp-hand-down{ &:before{ content:"\E349";} }
+.glyp-fullscreen{ &:before{ content:"\E350";} }
+.glyp-shopping-bag{ &:before{ content:"\E351";} }
+.glyp-book-open{ &:before{ content:"\E352";} }
+.glyp-nameplate{ &:before{ content:"\E353";} }
+.glyp-nameplate-alt{ &:before{ content:"\E354";} }
+.glyp-vases{ &:before{ content:"\E355";} }
+.glyp-bullhorn{ &:before{ content:"\E356";} }
+.glyp-dumbbell{ &:before{ content:"\E357";} }
+.glyp-suitcase{ &:before{ content:"\E358";} }
+.glyp-file-import{ &:before{ content:"\E359";} }
+.glyp-file-export{ &:before{ content:"\E360";} }
+.glyp-bug{ &:before{ content:"\E361";} }
+.glyp-crown{ &:before{ content:"\E362";} }
+.glyp-smoking{ &:before{ content:"\E363";} }
+.glyp-cloud-upload{ &:before{ content:"\E364";} }
+.glyp-cloud-download{ &:before{ content:"\E365";} }
+.glyp-restart{ &:before{ content:"\E366";} }
+.glyp-security-camera{ &:before{ content:"\E367";} }
+.glyp-expand{ &:before{ content:"\E368";} }
+.glyp-collapse{ &:before{ content:"\E369";} }
+.glyp-collapse-top{ &:before{ content:"\E370";} }
+.glyp-globe-af{ &:before{ content:"\E371";} }
+.glyp-global{ &:before{ content:"\E372";} }
+.glyp-spray{ &:before{ content:"\E373";} }
+.glyp-nails{ &:before{ content:"\E374";} }
+.glyp-claw-hammer{ &:before{ content:"\E375";} }
+.glyp-classic-hammer{ &:before{ content:"\E376";} }
+.glyp-hand-saw{ &:before{ content:"\E377";} }
+.glyp-riflescope{ &:before{ content:"\E378";} }
+.glyp-electrical-socket-eu{ &:before{ content:"\E379";} }
+.glyp-electrical-socket-us{ &:before{ content:"\E380";} }
+.glyp-message-forward{ &:before{ content:"\E381";} }
+.glyp-coat-hanger{ &:before{ content:"\E382";} }
+.glyp-dress{ &:before{ content:"\E383";} }
+.glyp-bathrobe{ &:before{ content:"\E384";} }
+.glyp-shirt{ &:before{ content:"\E385";} }
+.glyp-underwear{ &:before{ content:"\E386";} }
+.glyp-log-in{ &:before{ content:"\E387";} }
+.glyp-log-out{ &:before{ content:"\E388";} }
+.glyp-exit{ &:before{ content:"\E389";} }
+.glyp-new-window-alt{ &:before{ content:"\E390";} }
+.glyp-video-sd{ &:before{ content:"\E391";} }
+.glyp-video-hd{ &:before{ content:"\E392";} }
+.glyp-subtitles{ &:before{ content:"\E393";} }
+.glyp-sound-stereo{ &:before{ content:"\E394";} }
+.glyp-sound-dolby{ &:before{ content:"\E395";} }
+.glyp-sound-5-1{ &:before{ content:"\E396";} }
+.glyp-sound-6-1{ &:before{ content:"\E397";} }
+.glyp-sound-7-1{ &:before{ content:"\E398";} }
+.glyp-copyright-mark{ &:before{ content:"\E399";} }
+.glyp-registration-mark{ &:before{ content:"\E400";} }
+.glyp-radar{ &:before{ content:"\E401";} }
+.glyp-skateboard{ &:before{ content:"\E402";} }
+.glyp-golf-course{ &:before{ content:"\E403";} }
+.glyp-sorting{ &:before{ content:"\E404";} }
+.glyp-sort-by-alphabet{ &:before{ content:"\E405";} }
+.glyp-sort-by-alphabet-alt{ &:before{ content:"\E406";} }
+.glyp-sort-by-order{ &:before{ content:"\E407";} }
+.glyp-sort-by-order-alt{ &:before{ content:"\E408";} }
+.glyp-sort-by-attributes{ &:before{ content:"\E409";} }
+.glyp-sort-by-attributes-alt{ &:before{ content:"\E410";} }
+.glyp-compressed{ &:before{ content:"\E411";} }
+.glyp-package{ &:before{ content:"\E412";} }
+.glyp-cloud-plus{ &:before{ content:"\E413";} }
+.glyp-cloud-minus{ &:before{ content:"\E414";} }
+.glyp-disk-save{ &:before{ content:"\E415";} }
+.glyp-disk-open{ &:before{ content:"\E416";} }
+.glyp-disk-saved{ &:before{ content:"\E417";} }
+.glyp-disk-remove{ &:before{ content:"\E418";} }
+.glyp-disk-import{ &:before{ content:"\E419";} }
+.glyp-disk-export{ &:before{ content:"\E420";} }
+.glyp-tower{ &:before{ content:"\E421";} }
+.glyp-send{ &:before{ content:"\E422";} }
+.glyp-git-branch{ &:before{ content:"\E423";} }
+.glyp-git-create{ &:before{ content:"\E424";} }
+.glyp-git-private{ &:before{ content:"\E425";} }
+.glyp-git-delete{ &:before{ content:"\E426";} }
+.glyp-git-merge{ &:before{ content:"\E427";} }
+.glyp-git-pull-request{ &:before{ content:"\E428";} }
+.glyp-git-compare{ &:before{ content:"\E429";} }
+.glyp-git-commit{ &:before{ content:"\E430";} }
+.glyp-construction-cone{ &:before{ content:"\E431";} }
+.glyp-shoe-steps{ &:before{ content:"\E432";} }
+.glyp-plus{ &:before{ content:"\E433";} }
+.glyp-minus{ &:before{ content:"\E434";} }
+.glyp-redo{ &:before{ content:"\E435";} }
+.glyp-undo{ &:before{ content:"\E436";} }
+.glyp-golf{ &:before{ content:"\E437";} }
+.glyp-hockey{ &:before{ content:"\E438";} }
+.glyp-pipe{ &:before{ content:"\E439";} }
+.glyp-wrench{ &:before{ content:"\E440";} }
+.glyp-folder-closed{ &:before{ content:"\E441";} }
+.glyp-phone-alt{ &:before{ content:"\E442";} }
+.glyp-earphone{ &:before{ content:"\E443";} }
+.glyp-floppy-disk{ &:before{ content:"\E444";} }
+.glyp-floppy-saved{ &:before{ content:"\E445";} }
+.glyp-floppy-remove{ &:before{ content:"\E446";} }
+.glyp-floppy-save{ &:before{ content:"\E447";} }
+.glyp-floppy-open{ &:before{ content:"\E448";} }
+.glyp-translate{ &:before{ content:"\E449";} }
+.glyp-fax{ &:before{ content:"\E450";} }
+.glyp-factory{ &:before{ content:"\E451";} }
+.glyp-shop-window{ &:before{ content:"\E452";} }
+.glyp-shop{ &:before{ content:"\E453";} }
+.glyp-kiosk{ &:before{ content:"\E454";} }
+.glyp-kiosk-wheels{ &:before{ content:"\E455";} }
+.glyp-kiosk-light{ &:before{ content:"\E456";} }
+.glyp-kiosk-food{ &:before{ content:"\E457";} }
+.glyp-transfer{ &:before{ content:"\E458";} }
+.glyp-money{ &:before{ content:"\E459";} }
+.glyp-header{ &:before{ content:"\E460";} }
+.glyp-blacksmith{ &:before{ content:"\E461";} }
+.glyp-saw-blade{ &:before{ content:"\E462";} }
+.glyp-basketball{ &:before{ content:"\E463";} }
+.glyp-server{ &:before{ content:"\E464";} }
+.glyp-server-plus{ &:before{ content:"\E465";} }
+.glyp-server-minus{ &:before{ content:"\E466";} }
+.glyp-server-ban{ &:before{ content:"\E467";} }
+.glyp-server-flag{ &:before{ content:"\E468";} }
+.glyp-server-lock{ &:before{ content:"\E469";} }
+.glyp-server-new{ &:before{ content:"\E470";} }
+.glyp-charging-station{ &:before{ content:"\E471";} }
+.glyp-gas-station{ &:before{ content:"\E472";} }
+.glyp-target{ &:before{ content:"\E473";} }
+.glyp-bed{ &:before{ content:"\E474";} }
+.glyp-mosquito{ &:before{ content:"\E475";} }
+.glyp-dining-set{ &:before{ content:"\E476";} }
+.glyp-plate-of-food{ &:before{ content:"\E477";} }
+.glyp-hygiene-kit{ &:before{ content:"\E478";} }
+.glyp-blackboard{ &:before{ content:"\E479";} }
+.glyp-marriage{ &:before{ content:"\E480";} }
+.glyp-bucket{ &:before{ content:"\E481";} }
+.glyp-none-color-swatch{ &:before{ content:"\E482";} }
+.glyp-bring-forward{ &:before{ content:"\E483";} }
+.glyp-bring-to-front{ &:before{ content:"\E484";} }
+.glyp-send-backward{ &:before{ content:"\E485";} }
+.glyp-send-to-back{ &:before{ content:"\E486";} }
+.glyp-fit-frame-to-image{ &:before{ content:"\E487";} }
+.glyp-fit-image-to-frame{ &:before{ content:"\E488";} }
+.glyp-multiple-displays{ &:before{ content:"\E489";} }
+.glyp-handshake{ &:before{ content:"\E490";} }
+.glyp-child{ &:before{ content:"\E491";} }
+.glyp-baby-formula{ &:before{ content:"\E492";} }
+.glyp-medicine{ &:before{ content:"\E493";} }
+.glyp-atv-vehicle{ &:before{ content:"\E494";} }
+.glyp-motorcycle{ &:before{ content:"\E495";} }
+.glyp-bed-alt{ &:before{ content:"\E496";} }
+.glyp-tent{ &:before{ content:"\E497";} }
+.glyp-glasses{ &:before{ content:"\E498";} }
+.glyp-sunglasses{ &:before{ content:"\E499";} }
+.glyp-family{ &:before{ content:"\E500";} }
+.glyp-education{ &:before{ content:"\E501";} }
+.glyp-shoes{ &:before{ content:"\E502";} }
+.glyp-map{ &:before{ content:"\E503";} }
+.glyp-cd{ &:before{ content:"\E504";} }
+.glyp-alert{ &:before{ content:"\E505";} }
+.glyp-piggy-bank{ &:before{ content:"\E506";} }
+.glyp-star-half{ &:before{ content:"\E507";} }
+.glyp-cluster{ &:before{ content:"\E508";} }
+.glyp-flowchart{ &:before{ content:"\E509";} }
+.glyp-commodities{ &:before{ content:"\E510";} }
+.glyp-duplicate{ &:before{ content:"\E511";} }
+.glyp-copy{ &:before{ content:"\E512";} }
+.glyp-paste{ &:before{ content:"\E513";} }
+.glyp-bath-bathtub{ &:before{ content:"\E514";} }
+.glyp-bath-shower{ &:before{ content:"\E515";} }
+.glyp-shower{ &:before{ content:"\E516";} }
+.glyp-menu-hamburger{ &:before{ content:"\E517";} }
+.glyp-option-vertical{ &:before{ content:"\E518";} }
+.glyp-option-horizontal{ &:before{ content:"\E519";} }
+.glyp-currency-conversion{ &:before{ content:"\E520";} }
+.glyp-user-ban{ &:before{ content:"\E521";} }
+.glyp-user-lock{ &:before{ content:"\E522";} }
+.glyp-user-flag{ &:before{ content:"\E523";} }
+.glyp-user-asterisk{ &:before{ content:"\E524";} }
+.glyp-user-alert{ &:before{ content:"\E525";} }
+.glyp-user-key{ &:before{ content:"\E526";} }
+.glyp-user-conversation{ &:before{ content:"\E527";} }
+.glyp-database{ &:before{ content:"\E528";} }
+.glyp-database-search{ &:before{ content:"\E529";} }
+.glyp-list-alt{ &:before{ content:"\E530";} }
+.glyp-hazard-sign{ &:before{ content:"\E531";} }
+.glyp-hazard{ &:before{ content:"\E532";} }
+.glyp-stop-sign{ &:before{ content:"\E533";} }
+.glyp-lab{ &:before{ content:"\E534";} }
+.glyp-lab-alt{ &:before{ content:"\E535";} }
+.glyp-ice-cream{ &:before{ content:"\E536";} }
+.glyp-ice-lolly{ &:before{ content:"\E537";} }
+.glyp-ice-lolly-tasted{ &:before{ content:"\E538";} }
+.glyp-invoice{ &:before{ content:"\E539";} }
+.glyp-cart-tick{ &:before{ content:"\E540";} }
+.glyp-hourglass{ &:before{ content:"\E541";} }
+.glyp-cat{ &:before{ content:"\E542";} }
+.glyp-lamp{ &:before{ content:"\E543";} }
+.glyp-scale-classic{ &:before{ content:"\E544";} }
+.glyp-eye-plus{ &:before{ content:"\E545";} }
+.glyp-eye-minus{ &:before{ content:"\E546";} }
+.glyp-quote{ &:before{ content:"\E547";} }
+.glyp-bitcoin{ &:before{ content:"\E548";} }
+.glyp-yen{ &:before{ content:"\E549";} }
+.glyp-ruble{ &:before{ content:"\E550";} }
+.glyp-erase{ &:before{ content:"\E551";} }
+.glyp-podcast{ &:before{ content:"\E552";} }
+.glyp-firework{ &:before{ content:"\E553";} }
+.glyp-scale{ &:before{ content:"\E554";} }
+.glyp-king{ &:before{ content:"\E555";} }
+.glyp-queen{ &:before{ content:"\E556";} }
+.glyp-pawn{ &:before{ content:"\E557";} }
+.glyp-bishop{ &:before{ content:"\E558";} }
+.glyp-knight{ &:before{ content:"\E559";} }
+.glyp-mic-mute{ &:before{ content:"\E560";} }
+.glyp-voicemail{ &:before{ content:"\E561";} }
+.glyp-paragraph-alt{ &:before{ content:"\E562";} }
+.glyp-person-walking{ &:before{ content:"\E563";} }
+.glyp-person-wheelchair{ &:before{ content:"\E564";} }
+.glyp-underground{ &:before{ content:"\E565";} }
+.glyp-car-hov{ &:before{ content:"\E566";} }
+.glyp-car-rental{ &:before{ content:"\E567";} }
+.glyp-transport{ &:before{ content:"\E568";} }
+.glyp-taxi{ &:before{ content:"\E569";} }
+.glyp-ice-cream-no{ &:before{ content:"\E570";} }
+.glyp-uk-rat-u{ &:before{ content:"\E571";} }
+.glyp-uk-rat-pg{ &:before{ content:"\E572";} }
+.glyp-uk-rat-12a{ &:before{ content:"\E573";} }
+.glyp-uk-rat-12{ &:before{ content:"\E574";} }
+.glyp-uk-rat-15{ &:before{ content:"\E575";} }
+.glyp-uk-rat-18{ &:before{ content:"\E576";} }
+.glyp-uk-rat-r18{ &:before{ content:"\E577";} }
+.glyp-tv{ &:before{ content:"\E578";} }
+.glyp-sms{ &:before{ content:"\E579";} }
+.glyp-mms{ &:before{ content:"\E580";} }
+.glyp-us-rat-g{ &:before{ content:"\E581";} }
+.glyp-us-rat-pg{ &:before{ content:"\E582";} }
+.glyp-us-rat-pg-13{ &:before{ content:"\E583";} }
+.glyp-us-rat-restricted{ &:before{ content:"\E584";} }
+.glyp-us-rat-no-one-17{ &:before{ content:"\E585";} }
+.glyp-equalizer{ &:before{ content:"\E586";} }
+.glyp-speakers{ &:before{ content:"\E587";} }
+.glyp-remote-control{ &:before{ content:"\E588";} }
+.glyp-remote-control-tv{ &:before{ content:"\E589";} }
+.glyp-shredder{ &:before{ content:"\E590";} }
+.glyp-folder-heart{ &:before{ content:"\E591";} }
+.glyp-person-running{ &:before{ content:"\E592";} }
+.glyp-person{ &:before{ content:"\E593";} }
+.glyp-voice{ &:before{ content:"\E594";} }
+.glyp-stethoscope{ &:before{ content:"\E595";} }
+.glyp-paired{ &:before{ content:"\E596";} }
+.glyp-activity{ &:before{ content:"\E597";} }
+.glyp-watch{ &:before{ content:"\E598";} }
+.glyp-scissors-alt{ &:before{ content:"\E599";} }
+.glyp-car-wheel{ &:before{ content:"\E600";} }
+.glyp-chevron-up{ &:before{ content:"\E601";} }
+.glyp-chevron-down{ &:before{ content:"\E602";} }
+.glyp-superscript{ &:before{ content:"\E603";} }
+.glyp-subscript{ &:before{ content:"\E604";} }
+.glyp-text-size{ &:before{ content:"\E605";} }
+.glyp-text-color{ &:before{ content:"\E606";} }
+.glyp-text-background{ &:before{ content:"\E607";} }
+.glyp-modal-window{ &:before{ content:"\E608";} }
+.glyp-newspaper{ &:before{ content:"\E609";} }
+.glyp-tractor{ &:before{ content:"\E610";} }
+.glyp-camping{ &:before{ content:"\E611";} }
+.glyp-camping-benches{ &:before{ content:"\E612";} }
+.glyp-forest{ &:before{ content:"\E613";} }
+.glyp-park{ &:before{ content:"\E614";} }
+.glyp-field{ &:before{ content:"\E615";} }
+.glyp-mountains{ &:before{ content:"\E616";} }
+.glyp-fees-payments{ &:before{ content:"\E617";} }
+.glyp-small-payments{ &:before{ content:"\E618";} }
+.glyp-mixed-buildings{ &:before{ content:"\E619";} }
+.glyp-industrial-zone{ &:before{ content:"\E620";} }
+.glyp-visitor-tag{ &:before{ content:"\E621";} }
+.glyp-businessman{ &:before{ content:"\E622";} }
+.glyp-meditation{ &:before{ content:"\E623";} }
+.glyp-bath{ &:before{ content:"\E624";} }
+.glyp-donate{ &:before{ content:"\E625";} }
+.glyp-sauna{ &:before{ content:"\E626";} }
+.glyp-bedroom-nightstand{ &:before{ content:"\E627";} }
+.glyp-bedroom-lamp{ &:before{ content:"\E628";} }
+.glyp-doctor{ &:before{ content:"\E629";} }
+.glyp-engineering-networks{ &:before{ content:"\E630";} }
+.glyp-washing-machine{ &:before{ content:"\E631";} }
+.glyp-dryer{ &:before{ content:"\E632";} }
+.glyp-dishwasher{ &:before{ content:"\E633";} }
+.glyp-luggage-group{ &:before{ content:"\E634";} }
+.glyp-teenager{ &:before{ content:"\E635";} }
+.glyp-person-stick{ &:before{ content:"\E636";} }
+.glyp-person-stick-old{ &:before{ content:"\E637";} }
+.glyp-traveler{ &:before{ content:"\E638";} }
+.glyp-veteran{ &:before{ content:"\E639";} }
+.glyp-group-chat{ &:before{ content:"\E640";} }
+.glyp-elections{ &:before{ content:"\E641";} }
+.glyp-law-justice{ &:before{ content:"\E642";} }
+.glyp-judiciary{ &:before{ content:"\E643";} }
+.glyp-house-fire{ &:before{ content:"\E644";} }
+.glyp-firefighters{ &:before{ content:"\E645";} }
+.glyp-police{ &:before{ content:"\E646";} }
+.glyp-ambulance{ &:before{ content:"\E647";} }
+.glyp-light-beacon{ &:before{ content:"\E648";} }
+.glyp-important-day{ &:before{ content:"\E649";} }
+.glyp-bike-park{ &:before{ content:"\E650";} }
+.glyp-object-align-top{ &:before{ content:"\E651";} }
+.glyp-object-align-bottom{ &:before{ content:"\E652";} }
+.glyp-object-align-horizontal{ &:before{ content:"\E653";} }
+.glyp-object-align-left{ &:before{ content:"\E654";} }
+.glyp-object-align-vertical{ &:before{ content:"\E655";} }
+.glyp-object-align-right{ &:before{ content:"\E656";} }
+.glyp-reflect-y{ &:before{ content:"\E657";} }
+.glyp-reflect-x{ &:before{ content:"\E658";} }
+.glyp-tick{ &:before{ content:"\E659";} }
+.glyp-lawnmower{ &:before{ content:"\E660";} }
+.glyp-call-redirect{ &:before{ content:"\E661";} }
+.glyp-call-ip{ &:before{ content:"\E662";} }
+.glyp-call-record{ &:before{ content:"\E663";} }
+.glyp-call-ringtone{ &:before{ content:"\E664";} }
+.glyp-call-traffic{ &:before{ content:"\E665";} }
+.glyp-call-hold{ &:before{ content:"\E666";} }
+.glyp-call-incoming{ &:before{ content:"\E667";} }
+.glyp-call-outgoing{ &:before{ content:"\E668";} }
+.glyp-call-video{ &:before{ content:"\E669";} }
+.glyp-call-missed{ &:before{ content:"\E670";} }
+.glyp-theater{ &:before{ content:"\E671";} }
+.glyp-heartbeat{ &:before{ content:"\E672";} }
+.glyp-kettlebell{ &:before{ content:"\E673";} }
+.glyp-fireplace{ &:before{ content:"\E674";} }
+.glyp-street-lights{ &:before{ content:"\E675";} }
+.glyp-pedestrian{ &:before{ content:"\E676";} }
+.glyp-flood{ &:before{ content:"\E677";} }
+.glyp-open-water{ &:before{ content:"\E678";} }
+.glyp-for-sale{ &:before{ content:"\E679";} }
+.glyp-dustbin{ &:before{ content:"\E680";} }
+.glyp-door{ &:before{ content:"\E681";} }
+.glyp-camp-fire{ &:before{ content:"\E682";} }
+.glyp-fleur-de-lis{ &:before{ content:"\E683";} }
+.glyp-temperature-settings{ &:before{ content:"\E684";} }
+.glyp-article{ &:before{ content:"\E685";} }
+.glyp-sunbath{ &:before{ content:"\E686";} }
+.glyp-balanced-diet{ &:before{ content:"\E687";} }
+.glyp-ticket{ &:before{ content:"\E688";} }
+.glyp-parking-ticket{ &:before{ content:"\E689";} }
+.glyp-parking-meter{ &:before{ content:"\E690";} }
+.glyp-laptop{ &:before{ content:"\E691";} }
+.glyp-tree-structure{ &:before{ content:"\E692";} }
+.glyp-weather-warning{ &:before{ content:"\E693";} }
+.glyp-temperature-low{ &:before{ content:"\E694";} }
+.glyp-temperature-high{ &:before{ content:"\E695";} }
+.glyp-temperature-low-warning{ &:before{ content:"\E696";} }
+.glyp-temperature-high-warning{ &:before{ content:"\E697";} }
+.glyp-hurricane{ &:before{ content:"\E698";} }
+.glyp-storm{ &:before{ content:"\E699";} }
+.glyp-sorted-waste{ &:before{ content:"\E700";} }
+.glyp-ear{ &:before{ content:"\E701";} }
+.glyp-ear-deaf{ &:before{ content:"\E702";} }
+.glyp-file-plus{ &:before{ content:"\E703";} }
+.glyp-file-minus{ &:before{ content:"\E704";} }
+.glyp-file-lock{ &:before{ content:"\E705";} }
+.glyp-file-cloud{ &:before{ content:"\E706";} }
+.glyp-file-cloud-download{ &:before{ content:"\E707";} }
+.glyp-file-cloud-upload{ &:before{ content:"\E708";} }
+.glyp-paragraph{ &:before{ content:"\E709";} }
+.glyp-list-numbered{ &:before{ content:"\E710";} }
+.glyp-donate-heart{ &:before{ content:"\E711";} }
+.glyp-government{ &:before{ content:"\E712";} }
+.glyp-maze{ &:before{ content:"\E713";} }
+.glyp-chronicle{ &:before{ content:"\E714";} }
+.glyp-user-structure{ &:before{ content:"\E715";} }
+.glyp-recycle{ &:before{ content:"\E716";} }
+.glyp-gas{ &:before{ content:"\E717";} }
+.glyp-waste-pipe{ &:before{ content:"\E718";} }
+.glyp-water-pipe{ &:before{ content:"\E719";} }
+.glyp-parking{ &:before{ content:"\E720";} }
+.glyp-closed{ &:before{ content:"\E721";} }
+.glyp-mouse{ &:before{ content:"\E722";} }
+.glyp-mouse-double-click{ &:before{ content:"\E723";} }
+.glyp-mouse-left-click{ &:before{ content:"\E724";} }
+.glyp-mouse-right-click{ &:before{ content:"\E725";} }
+.glyp-mouse-middle-click{ &:before{ content:"\E726";} }
+.glyp-mouse-scroll{ &:before{ content:"\E727";} }
+.glyp-resize-vertical{ &:before{ content:"\E728";} }
+.glyp-resize-horizontal{ &:before{ content:"\E729";} }
+.glyp-temperature{ &:before{ content:"\E730";} }
+.glyp-puzzle{ &:before{ content:"\E731";} }
+.glyp-puzzle-2{ &:before{ content:"\E732";} }
+.glyp-puzzle-3{ &:before{ content:"\E733";} }
+.glyp-nearby-square{ &:before{ content:"\E734";} }
+.glyp-nearby-circle{ &:before{ content:"\E735";} }
+.glyp-rotate-right{ &:before{ content:"\E736";} }
+.glyp-rotate-left{ &:before{ content:"\E737";} }
+.glyp-pictures{ &:before{ content:"\E738";} }
+.glyp-photo-album{ &:before{ content:"\E739";} }
+.glyp-cadastral-map{ &:before{ content:"\E740";} }
+.glyp-fingerprint-scan{ &:before{ content:"\E741";} }
+.glyp-fingerprint{ &:before{ content:"\E742";} }
+.glyp-fingerprint-lock{ &:before{ content:"\E743";} }
+.glyp-fingerprint-ok{ &:before{ content:"\E744";} }
+.glyp-fingerprint-remove{ &:before{ content:"\E745";} }
+.glyp-fingerprint-reload{ &:before{ content:"\E746";} }
+.glyp-pending-notifications{ &:before{ content:"\E747";} }
+.glyp-synchronization{ &:before{ content:"\E748";} }
+.glyp-synchronization-ban{ &:before{ content:"\E749";} }
+.glyp-hash{ &:before{ content:"\E750";} }
+.glyp-gender-male{ &:before{ content:"\E751";} }
+.glyp-gender-female{ &:before{ content:"\E752";} }
+.glyp-gender-virgin-female{ &:before{ content:"\E753";} }
+.glyp-gender-intersex{ &:before{ content:"\E754";} }
+.glyp-gender-transgender{ &:before{ content:"\E755";} }
+.glyp-gender-ori-lesbian{ &:before{ content:"\E756";} }
+.glyp-gender-ori-gay{ &:before{ content:"\E757";} }
+.glyp-gender-ori-hetero{ &:before{ content:"\E758";} }
+.glyp-gender-other{ &:before{ content:"\E759";} }
+.glyp-gender-unknown{ &:before{ content:"\E760";} }
+.glyp-scanner{ &:before{ content:"\E761";} }
+.glyp-multifunction-printer{ &:before{ content:"\E762";} }
+.glyp-lasso{ &:before{ content:"\E763";} }
+.glyp-view-360{ &:before{ content:"\E764";} }
+.glyp-battery-charging{ &:before{ content:"\E765";} }
+.glyp-battery-full{ &:before{ content:"\E766";} }
+.glyp-battery-75{ &:before{ content:"\E767";} }
+.glyp-battery-50{ &:before{ content:"\E768";} }
+.glyp-battery-25{ &:before{ content:"\E769";} }
+.glyp-battery-10{ &:before{ content:"\E770";} }
+.glyp-satellite{ &:before{ content:"\E771";} }
+.glyp-satellite-dish{ &:before{ content:"\E772";} }
+.glyp-satellite-dish-alt{ &:before{ content:"\E773";} }
+.glyp-auction{ &:before{ content:"\E774";} }
+.glyp-directions{ &:before{ content:"\E775";} }
+.glyp-race{ &:before{ content:"\E776";} }
+.glyp-robot{ &:before{ content:"\E777";} }
+.glyp-ruler-alt{ &:before{ content:"\E778";} }
+.glyp-cube-empty{ &:before{ content:"\E779";} }
+.glyp-cube-black{ &:before{ content:"\E780";} }
+.glyp-move-square{ &:before{ content:"\E781";} }
+.glyp-drop{ &:before{ content:"\E782";} }
+.glyp-vr-headset{ &:before{ content:"\E783";} }
+.glyp-vr-charging{ &:before{ content:"\E784";} }
+.glyp-vr-low-battery{ &:before{ content:"\E785";} }
+.glyp-vr-paired{ &:before{ content:"\E786";} }
+.glyp-vr-settings{ &:before{ content:"\E787";} }
+.glyp-vr-maintenance{ &:before{ content:"\E788";} }
+.glyp-filter-remove{ &:before{ content:"\E789";} }
+.glyp-filter-applied{ &:before{ content:"\E790";} }
+.glyp-one-day{ &:before{ content:"\E791";} }
+.glyp-user-vr{ &:before{ content:"\E792";} }
+.glyp-user-vr-add{ &:before{ content:"\E793";} }
+.glyp-user-vr-remove{ &:before{ content:"\E794";} }
+.glyp-dice-1{ &:before{ content:"\E795";} }
+.glyp-dice-2{ &:before{ content:"\E796";} }
+.glyp-dice-3{ &:before{ content:"\E797";} }
+.glyp-dice-4{ &:before{ content:"\E798";} }
+.glyp-dice-5{ &:before{ content:"\E799";} }
+.glyp-dice-6{ &:before{ content:"\E800";} }
