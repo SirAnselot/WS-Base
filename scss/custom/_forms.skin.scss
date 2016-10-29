@@ -1,0 +1,334 @@
+
+.form-group {
+   padding: ($spacer-y * 0.5) 0;
+   &.from-group-c2a {
+      margin-top: 2rem;
+   }
+}
+
+.form-control {
+   font-family: $font-family-sans-serif;
+   font-weight: 400;
+   font-size: 100%;
+   color: $gray;
+
+   box-shadow: none;
+   @include bg-color($gray-lightest);
+   @include border-color($gray-lighter);
+
+   @include transition(border-color ease-in-out .15s, box-shadow ease-in-out .15s);
+
+   // Make inputs at least the height of their button counterpart (base line-height + padding + border).
+   // Only apply the height to textual inputs and some selects.
+   /*
+      &:not(textarea),
+      &:not(select[size]),
+      &:not(select[multiple]) {
+         height: $input-height;
+   }
+   */
+
+   // Customize the `:focus` state to imitate native WebKit styles.
+   @include form-control-focus();
+
+   &:focus {
+      color: $gray-dark;
+      border-color: $brand-primary;
+      @include bg-color($white);
+      box-shadow: inset 0 0 0 rgba(0,0,0,.1);
+   }
+
+   // Placeholder
+   &::placeholder {
+      @include type-color ($gray, 0.25);
+   }
+
+   &:disabled,
+   &[readonly] {
+
+   }
+
+   &:disabled {
+
+   }
+}
+
+// Make file inputs better match text inputs by forcing them to new lines.
+.form-control-file,
+.form-control-range {
+
+}
+
+//
+// Labels
+//
+.col-form-label {
+   font-family: $font-family-sans-serif;
+   font-weight: 400;
+   color: $gray-light;
+   padding-left: 0;
+   &.col-form-label-lg {
+      font-size: 115%;
+   }
+   &.required {
+      color: $gray;
+      font-weight: bold;
+      &:before {
+         content: '* ';
+      }
+   }
+}
+
+.form-text,
+.help-text {
+   font-family: $font-family-sans-serif;
+   font-style: italic;
+
+}
+
+// Static form control text
+//
+// Apply class to an element to make any string of text align with labels in a
+// horizontal form layout.
+.form-control-static {
+   &.form-control-sm,
+   &.form-control-lg {
+
+   }
+}
+
+// Form control sizing
+//
+// Build on `.form-control` with modifier classes to decrease or increase the
+// height and font-size of form controls.
+//
+// The `.form-group-* form-control` variations are sadly duplicated to avoid the
+// issue documented in https://github.com/twbs/bootstrap/issues/15074.
+.form-control-sm {
+
+}
+
+.form-control-lg {
+   font-size: 115%;
+}
+
+// Form groups
+//
+// Designed to help with the organization and spacing of vertical forms. For
+// horizontal forms, use the predefined grid classes.
+.form-group {
+
+}
+
+
+// Checkboxes and radios
+//
+// Indent the labels to position radios/checkboxes as hanging controls.
+.radio,
+.checkbox {
+   label {
+    // When there's no labels, don't position the input.
+      input:only-child {
+
+      }
+   }
+}
+.radio input[type="radio"],
+.radio-inline input[type="radio"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
+
+}
+
+.radio + .radio,
+.checkbox + .checkbox {
+
+}
+
+// Radios and checkboxes on same line
+.radio-inline,
+.checkbox-inline {
+
+}
+.radio-inline + .radio-inline,
+.checkbox-inline + .checkbox-inline {
+
+}
+
+// Apply same disabled cursor tweak as for inputs
+// Some special care is needed because <label>s don't inherit their parent's `cursor`.
+//
+// Note: Neither radios nor checkboxes can be readonly.
+input[type="radio"],
+input[type="checkbox"] {
+   &:disabled,
+   &.disabled {
+
+   }
+}
+// These classes are used directly on <label>s
+.radio-inline,
+.checkbox-inline {
+   &.disabled {
+
+   }
+}
+// These classes are used on elements with <label> descendants
+.radio,
+.checkbox {
+   &.disabled {
+      label {
+
+      }
+   }
+}
+
+// Form control feedback states
+//
+// Apply contextual and semantic states to individual form controls.
+.form-control-success,
+.form-control-warning,
+.form-control-danger {
+
+}
+
+// Form validation states
+.has-success {
+   .form-control-success {
+
+   }
+}
+
+.has-warning {
+   .form-control-warning {
+
+   }
+}
+
+.has-danger {
+   .form-control-danger {
+
+   }
+}
+
+// Inline forms
+//
+// Make forms appear inline(-block) by adding the `.form-inline` class. Inline
+// forms begin stacked on extra small (mobile) devices and then go inline when
+// viewports reach <768px.
+//
+// Requires wrapping inputs and labels with `.form-group` for proper display of
+// default HTML form controls and our custom form controls (e.g., input groups).
+.form-inline {
+
+   // Kick in the inline
+   @include media-breakpoint-up(sm) {
+    // Inline-block all the things for "inline"
+      .form-group {
+
+      }
+
+      // Allow folks to *not* use `.form-group`
+      .form-control {
+
+      }
+
+      // Make static controls behave like regular ones
+      .form-control-static {
+
+      }
+
+      .input-group {
+         .input-group-addon,
+         .input-group-btn,
+         .form-control {
+
+         }
+      }
+
+
+      .input-group > .form-control {
+
+      }
+
+      .form-control-label {
+
+      }
+
+      // Remove default margin on radios/checkboxes that were used for stacking, and
+      // then undo the floating of radios and checkboxes to match.
+      .radio,
+      .checkbox {
+         label {
+
+         }
+      }
+      .radio input[type="radio"],
+      .checkbox input[type="checkbox"] {
+
+      }
+      // Re-override the feedback icon.
+      .has-feedback .form-control-feedback {
+
+      }
+   }
+}
+
+.nopo-skin-invers {
+// namespace
+
+fieldset {
+   &.actions {
+      padding: 1rem 0;
+   }
+}
+
+.form-control {
+   font-family: $font-family-sans-serif;
+   font-weight: 400;
+   font-size: 100%;
+   color: $gray-light;
+
+   box-shadow: inset 0 1px 15px rgba(0,0,0,.2);
+   @include bg-color($gray-darker, 0.25);
+   @include border-color($gray);
+
+   @include transition(border-color ease-in-out .15s, box-shadow ease-in-out .15s);
+
+   // Make inputs at least the height of their button counterpart (base line-height + padding + border).
+   // Only apply the height to textual inputs and some selects.
+   /*
+      &:not(textarea),
+      &:not(select[size]),
+      &:not(select[multiple]) {
+         height: $input-height;
+   }
+   */
+
+   // Customize the `:focus` state to imitate native WebKit styles.
+   @include form-control-focus();
+
+   &:focus {
+      color: $gray-lighter;
+      border-color: $gray-lighter;
+      @include bg-color($gray-darker, 0.5);
+      box-shadow: inset 0 0 0 rgba(0,0,0,.15);
+   }
+
+   // Placeholder
+   &::placeholder {
+      @include type-color ($gray, 0.25);
+   }
+
+   &:disabled,
+   &[readonly] {
+
+   }
+
+   &:disabled {
+
+   }
+}
+
+// ende :: namespace
+}

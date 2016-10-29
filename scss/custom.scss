@@ -4,12 +4,9 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
-// Core variables and mixins
-@import "bootstrap.4.0.0/variables";
-@import "bootstrap.4.0.0/mixins";
-
 // custom variables and mixins
 @import "custom/variables";
+@import "bootstrap.4.0.0/mixins";
 @import "custom/mixins";
 
 // Reset and dependencies
@@ -76,9 +73,14 @@
 // Utility classes
 @import "bootstrap.4.0.0/utilities";
 
+// formating text
+@import "custom/text.formats";
+
+// skinning form elements
+@import "custom/forms.skin";
+
 // reset chosen for easier skining
 @import "custom/chosen.reset";
-
 
 body {
 
@@ -104,7 +106,7 @@ body {
 }
 
 // empty.html
-.tpl-empty {
+.tpl  {
 	.page {
 		.header,
 		.footer {
@@ -112,6 +114,12 @@ body {
 			background-color: $gray-lighter;
 		}
 	}
+}
+
+.btn {
+   font-family: $font-family-sans-serif;
+   text-transform: uppercase;
+   font-weight: 400;
 }
 
 // MEDIA QUERIES (samples)

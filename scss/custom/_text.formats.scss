@@ -1,0 +1,129 @@
+/**
+ * STYLE FORMATS
+ * Text-fonts, -colors, -styles, -sizes, etc. (to be made available in html-editor)
+**/
+/**
+ * COLORS
+**/
+.text-primary        { color: $brand-primary; }    // violett
+.text-secondary      { color: $brand-secondary; }  // orange
+
+// grays
+.text-gray-base      { color: #000 !important; }
+.text-gray-darkest   { color: $gray-darkest !important; }
+.text-gray-darker    { color: $gray-darker !important; }
+.text-gray-dark      { color: $gray-dark !important; }
+.text-gray           { color: $gray !important; }
+.text-gray-light     { color: $gray-light !important; }
+.text-gray-lighter   { color: $gray-lighter !important; }
+.text-gray-lightest  { color: $gray-lightest !important; }
+.text-white          { color: $white !important; }
+
+// context
+.text-info           { color: $brand-info !important; }
+.text-success        { color: $brand-success !important; }
+.text-warning        { color: $brand-warning !important; }
+.text-danger         { color: $brand-danger !important; }
+
+// FONTS
+.serif      { font-family: $font-family-serif !important; }
+.sans       { font-family: $font-family-sans-serif !important; }
+.mono       { font-family: $font-family-monospace !important; }
+
+// FONT-SIZE
+.text-lg    { font-size: $font-size-lg !important; }
+.text-sm    { font-size: $font-size-sm !important; }
+.text-xs    { font-size: $font-size-xs !important; }
+
+// HEADLINE DISPLAY
+.display-1  { font-size: $display1-size !important; }
+.display-2  { font-size: $display2-size !important; }
+.display-3  { font-size: $display3-size !important; }
+.display-4  { font-size: $display4-size !important; }
+
+p {
+   margin-top: $spacer-y;
+}
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-family: $font-family-serif;
+   margin-top: ($spacer-y * 2);
+   + h1,
+   + h2,
+   + h3,
+   + h4,
+   + h5,
+   + h6,
+   + p {
+      margin-top: 0;
+   }
+}
+
+h1 {
+   font-family: $font-family-serif;
+   margin: $spacer-y 0 ($spacer-y * 2) 0;
+}
+
+// display
+.display-1,
+.display-2,
+.display-3,
+.display-4 {
+   font-family: $font-family-sans-serif;
+   color: $brand-primary;
+   margin-top: ($spacer-y * 1.5);
+   margin-bottom: ($spacer-y * 0.25);
+   + .display-1,
+   + .display-2,
+   + .display-3,
+   + .display-4 {
+      margin-top: 0;
+   }
+   + .lead {
+      margin-top: ($spacer-y * 1.5);
+   }
+}
+small,
+.small {
+   font-size: 90%;
+}
+// LEAD
+.lead {
+   font-family: $font-family-serif;
+   color: $gray;
+   margin-top: 0;
+   margin-bottom: ($spacer-y * 3);
+}
+
+/* BLOCKQUOTE */
+.blockquote {
+   font-family: $font-family-serif;
+   font-style: italic;
+   padding-right: 1.5rem;
+   padding-left: 1.5rem;
+   line-height: 2.5rem;
+   color: $gray;
+   margin-bottom: 1.5rem;
+}
+.blockquote-footer {
+   font-style: normal;
+   font-family: $font-family-sans-serif;
+   font-size: $font-size-base;
+   color: $blockquote-small-color;
+}
+
+/* FIGURE */
+.figure {
+   padding: $spacer-y 0;
+}
+.figure-caption {
+   font-family: $font-family-serif;
+   font-size: $font-size-xs;
+   font-style: italic;
+   color: $gray-light;
+   border-bottom: $border-dotted;
+   padding: 0.35rem 0;
+}

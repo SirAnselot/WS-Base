@@ -3,10 +3,9 @@
  * reset default chosen.css to make custom skinning less annoying and timeconsuming
  */
 .chosen-container {
-   font-size: inherit;
    box-shadow: none !important;
    font-family: $font-family-sans-serif;
-   font-weight: 500;
+   font-weight: 400;
    & {
       .chosen-drop {
          border-image: none !important;
@@ -35,7 +34,20 @@
    }
    &.chosen-container-single {
       .chosen-drop {
+         font-size:  125%;
          border-radius: 0;
+         border: 1px solid;
+         @include bg-color($white);
+         @include border-color($brand-primary);
+         border-top: none;
+         padding: 1rem 0.25rem 0 0.25rem;
+         .chosen-results > .active-result {
+            @include bg-color($white);
+            padding: 0.75rem 0.5rem;
+            &.highlighted {
+               @include bg-color($brand-primary);
+            }
+         }
       }
       & {
          > .chosen-single {
@@ -46,8 +58,9 @@
             height: auto;
             padding: 0.2rem 1rem;
             color: $gray-darker;
-            border: 1px solid $gray-light;
-            background-color: $gray-light;
+            border: 1px solid;
+            @include bg-color($gray-lightest);
+            @include border-color($gray-lighter);
             transition: background 0.1s linear, border 0.1s linear, color 0.1s linear;
             > div b {
                background-image: none !important;
@@ -55,15 +68,15 @@
                &:before {
                   content: '';
                   position: absolute;
-                  @include caret-down(6px, $gray-darker);
-                  top:  0.85rem;
-                  right: 1rem;
+                  @include caret-down(6px, $gray);
+                  top:  20px;
+                  right: 1.5rem;
                }
             }
             &:hover, &:focus, &.active {
                color: $brand-primary;
-               background-color: $white;
-               border-color: $white;
+               @include bg-color($white);
+               @include border-color($brand-primary);
                > div b {
                   &:before {
                      @include caret-down(6px, $brand-primary);
@@ -81,6 +94,13 @@
             }
          }
       }
+      &.chosenize-lg {
+         > .chosen-single {
+            font-size:  115%;
+            min-height: 45px;
+            padding: .7rem 1.5rem;
+         }
+      }
       &.chosen-with-drop {
          // stuff only visible when dropdown open
       }
@@ -89,8 +109,8 @@
             z-index: $zindex-modal;
             .chosen-single {
                color: $brand-primary;
-               background-color: $white;
-               border-color: $white;
+               @include bg-color($white);
+               @include border-color($brand-primary);
                > div b {
                   background-image: none !important;
                   background: none !important;
@@ -114,7 +134,7 @@
             margin: 8px;
             padding: 0px;
             background-color: $gray-lighter;
-            border: 1px solid $gray-light;
+            border: 1px solid $brand-primary;
             > input {
                color: $gray-dark;
                padding: 0.35rem 0.5rem;

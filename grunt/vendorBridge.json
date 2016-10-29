@@ -3,6 +3,7 @@
 		"vendor": [
 			"jquery/1.12.4/jquery.js",
 			"tether/1.3.0/tether.js",
+         "chosen/1.5.1/chosen.jquery.min.js",
 			"bootstrap/4.0.0/bootstrap.js",
 			"bootstrap.datepicker/1.7.0/bootstrap-datepicker.js",
 			"bootstrap.datepicker/locales/bootstrap-datepicker.de.min.js",
