@@ -1,6 +1,6 @@
 /*!
  * VendorJS Compiler v1.0.0
- * Compiled 2016-10-26 by Ansgar Hiller <ansgar@weigelstein.de> (http://www.weigelstein.de)
+ * Compiled 2016-11-25 by Ansgar Hiller <ansgar@weigelstein.de> (http://www.weigelstein.de)
  * 
  * Included vendors:
  * --------------------------------------------------
