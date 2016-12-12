@@ -1,0 +1,179 @@
+//
+// Question Group
+//
+
+$question-btn-bg-color:     $gray-lighter;
+
+.question-parent {
+   background-color: $question-btn-bg-color;
+}
+
+// TODO can move to a utility stylesheet
+.toggle-btn {
+   padding-left: 0.5rem;
+   padding-right: 0.5rem;
+   width: 32px;
+   height: 32px;
+   border-radius: 50%;
+   margin-top: 0.65rem;
+   // margin-bottom: 1rem;
+   float: left;
+   margin-right: 1rem;
+   &.pull-right {
+      float: right;
+      margin-right: 0;
+   }
+   > .icon:before {
+      margin-right: 0;
+   }
+   & {
+      > .icon-down-open { display: inline-block; }
+      > .icon-right-open { display: none; }
+   }
+   &.collapsed {
+      > .icon-down-open { display: none; }
+      > .icon-right-open { display: inline-block; }
+   }
+}
+
+.question-header {
+   max-height: 50px;
+   overflow: hidden;
+   > .question-txt {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      // white-space: nowrap;
+      max-height: 1.5rem;
+   }
+   .open & {
+      max-height: none;
+      > .question-txt {
+         white-space: normal;
+         max-height: none;
+      }
+   }
+}
+
+.radio-group {
+
+   @include media-breakpoint-up(xs) {
+      &.card-group {
+         // border: 1px solid $question-btn-bg-color;
+
+         &.collapse {
+            overflow: hidden;
+            height: 1px;
+            &.in {
+               height: auto;
+            }
+         }
+
+         @if $enable-flex {
+            display: flex;
+            flex-flow: row wrap;
+         } @else {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+         }
+
+         .card {
+            background-color: $question-btn-bg-color;
+            border: none;
+            margin-bottom: 0;
+
+            @if $enable-flex {
+               flex: 1 0 0;
+            } @else {
+               display: table-cell;
+               vertical-align: top;
+            }
+
+            + .card {
+               margin-left: 0;
+               border-left: 0;
+            }
+
+            & {
+               > .card-img {
+                  opacity: 0.5;
+                  transition: opacity 0.2s linear;
+               }
+
+               > .card-img-overlay {
+                  padding: 30%;
+
+                  > .btn {
+                     width: 100%;
+                     height: 100%;
+                     margin: 0;
+                     padding: 0;
+                     display: table;
+                     text-align: center;
+                     border: none;
+                     border-radius: 50%;
+
+                     background-color: $question-btn-bg-color;
+
+                     > .label-txt {
+                        color: $gray-light;
+                        transition: color 0.2s linear;
+                        width: 100%;
+                        font-weight: 600;
+                        display: table-cell;
+                        vertical-align: middle;
+                        line-height: 1;
+                     }
+
+                     // Bring the "active" button to the front
+                     &:focus,
+                     &:active,
+                     &.active {
+                        z-index: 2;
+                        background-color: $brand-primary;
+                        > .label-txt {
+                           color: #FFF;
+                        }
+                     }
+
+                     @include hover {
+                       z-index: 2;
+                     }
+
+                     input[type="radio"],
+                     input[type="checkbox"] {
+                        position: absolute;
+                        clip: rect(0,0,0,0);
+                        pointer-events: none;
+                        margin: 0;
+                        padding: 0;
+                     }
+                  }
+               }
+
+               &.active-card,
+               &:hover {
+                  > .card-img {
+                     opacity: 1;
+                  }
+               }
+            }
+         }
+      }
+   }
+   @include media-breakpoint-down(sm) {
+      &.card-group .card > .card-img-overlay > .btn > .label-txt {
+         font-size: $font-size-sm;
+      }
+   }
+   @include media-breakpoint-up(sm) {
+      &.card-group .card > .card-img-overlay > .btn > .label-txt {
+         font-size: $font-size-base;
+      }
+   }
+   @include media-breakpoint-up(lg) {
+      &.card-group .card > .card-img-overlay > .btn > .label-txt {
+         font-size: $font-size-lg;
+      }
+   }
+}
