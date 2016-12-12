@@ -12535,6 +12535,10 @@ small,
   border: none;
 }
 
+.question-parent {
+  background-color: #D9D9D9;
+}
+
 .toggle-btn {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -12592,8 +12596,6 @@ small,
 }
 
 .radio-group.card-group {
-  border: 1px solid #D9D9D9;
-  background-color: #D9D9D9;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
