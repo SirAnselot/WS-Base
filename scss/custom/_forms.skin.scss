@@ -65,14 +65,14 @@
 .col-form-label {
    font-family: $font-family-sans-serif;
    font-weight: 400;
-   color: $gray-light;
-   padding-left: 0;
+   white-space: nowrap;
+   text-overflow: ellipsis;
+   overflow: hidden;
    &.col-form-label-lg {
       font-size: 115%;
    }
    &.required {
-      color: $gray;
-      font-weight: bold;
+      font-weight: 600;
       &:before {
          content: '* ';
       }
@@ -194,18 +194,27 @@ input[type="checkbox"] {
 
 // Form validation states
 .has-success {
+   .col-form-label {
+      color: $brand-success;
+   }
    .form-control-success {
 
    }
 }
 
 .has-warning {
+   .col-form-label {
+      color: $brand-warning;
+   }
    .form-control-warning {
 
    }
 }
 
 .has-danger {
+   .col-form-label {
+      color: $brand-danger;
+   }
    .form-control-danger {
 
    }
@@ -331,4 +340,65 @@ fieldset {
 }
 
 // ende :: namespace
+}
+
+// Checkboxes and radios
+//
+// Base class takes care of all the key behavioral aspects.
+.nopo-skin {
+   &.custom-control {
+      + .custom-control {
+
+      }
+   }
+
+   // Custom indicator
+   //
+   // Generates a shadow element to create our makeshift checkbox/radio background.
+   .custom-control-indicator {
+      top: 0.15rem;
+      border: 1px solid $gray;
+      @include bg-color($gray-lightest);
+      @include border-color($gray-lighter);
+   }
+
+   .custom-control-input {
+
+      &:checked ~ .custom-control-indicator {
+         @include border-color($brand-primary);
+         @include bg-color($brand-primary);
+      }
+
+      &:focus ~ .custom-control-indicator {
+        // the mixin is not used here to make sure there is feedback
+      }
+
+      &:active ~ .custom-control-indicator {
+        @include border-color($brand-primary);
+        @include bg-color($brand-primary, 0.75);
+        box-shadow: inset 0 0 0 rgba(0,0,0,.1);
+      }
+   }
+
+   .custom-control-description {
+      display: inline-block;
+      font-family: $font-family-sans-serif;
+      font-weight: 400;
+      color: $gray-light;
+      padding-left: ($custom-control-gutter * .25);
+   }
+
+   &.custom-checkbox-lg {
+      .custom-control-indicator {
+         top: 0;
+         width: 1.5rem;
+         height: 1.5rem;
+      }
+
+      .custom-control-description {
+         height: 1.5rem;
+         font-size: 115%;
+         padding-left: ($custom-control-gutter * .5);
+      }
+   }
 }
