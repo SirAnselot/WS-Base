@@ -3,84 +3,23 @@
  * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-
-// custom variables and mixins
+// Core variables and mixins
 @import "custom/variables";
-@import "bootstrap.4.0.0/mixins";
-@import "custom/mixins";
 
-// Reset and dependencies
-@import "bootstrap.4.0.0/normalize";
-@import "bootstrap.4.0.0/print";
+// variables and mixins "ws-framework"
+@import "ws/ws";
 
-/* ENTYPO+ ICONS
- *	--------------
- * @see: 	/fonts/entypo-preview/index.html
- *
- *	Use like so:  <span class="icon-[icon-name]" /></span>
- 	-----	*/
-
-@import "custom/entypo";
-/*	-----	*/
-
-/*	GLYPHICONS ICONS
- *	------------------
- * @see: 	/fonts/glyphicons-preview/index.html
- *
- *	!!! But use like so: <span class="glyp-[icon-name]" /></span> instead of <span class="glyphicons glyphicons-[icon-name]" /></span> as suggested by the overview page
- *	(notice that also no additional scope 'glyphicons' or 'glyp' is needed)
- 	-----	*/
-
-@import "custom/glyphiconspro";
-/*	-----	*/
-
-// Core CSS
-@import "bootstrap.4.0.0/reboot";
-@import "bootstrap.4.0.0/type";
-@import "bootstrap.4.0.0/images";
-@import "bootstrap.4.0.0/code";
-@import "bootstrap.4.0.0/grid";
-@import "bootstrap.4.0.0/tables";
-@import "bootstrap.4.0.0/forms";
-@import "bootstrap.4.0.0/buttons";
-
-// Components
-@import "bootstrap.4.0.0/animation";
-@import "bootstrap.4.0.0/dropdown";
-@import "bootstrap.4.0.0/button-group";
-@import "bootstrap.4.0.0/input-group";
-@import "bootstrap.4.0.0/custom-forms";
-@import "bootstrap.4.0.0/nav";
-@import "bootstrap.4.0.0/navbar";
-@import "bootstrap.4.0.0/card";
-@import "bootstrap.4.0.0/breadcrumb";
-@import "bootstrap.4.0.0/pagination";
-@import "bootstrap.4.0.0/tags";
-@import "bootstrap.4.0.0/jumbotron";
-@import "bootstrap.4.0.0/alert";
-@import "bootstrap.4.0.0/progress";
-@import "bootstrap.4.0.0/media";
-@import "bootstrap.4.0.0/list-group";
-@import "bootstrap.4.0.0/responsive-embed";
-@import "bootstrap.4.0.0/close";
-
-// Components w/ JavaScript
-@import "bootstrap.4.0.0/modal";
-@import "bootstrap.4.0.0/tooltip";
-@import "bootstrap.4.0.0/popover";
-@import "bootstrap.4.0.0/carousel";
-
-// Utility classes
-@import "bootstrap.4.0.0/utilities";
+// formating text
+@import "custom/button";
 
 // formating text
 @import "custom/text.formats";
 
+// formating text
+@import "custom/chosen.reset";
+
 // skinning form elements
 @import "custom/forms.skin";
-
-// reset chosen for easier skining
-@import "custom/chosen.reset";
 
 // card group for anamnesis question
 @import "custom/card-group-question";
@@ -88,41 +27,98 @@
 body {
 
 }
+
 .page {
-    min-height: 100%;
-    width: 100%;
-}
-.navbar {
+   min-height: 100%;
+   width: 100%;
+   background-repeat: no-repeat;
+   background-position: center top;
+   background-size: contain;
+   background-attachment: fixed;
+   background-image: url(../img/nopo900_header-bg.jpg);
+   @include media-breakpoint-down(lg) {
+      background-size: 1600px 500px;
+   }
+   @include media-breakpoint-down(sm) {
+      background-image: url(../img/nopo900_header-bg-sm.jpg);
+      background-size: 768px 300px;
+   }
+   @include media-breakpoint-down(xs) {
+      background-image: url(../img/nopo900_header-bg-xs.jpg);
+      background-size: 544px 300px;
+   }
 
-}
-.tpl-index {
-	padding-top: 120px;
-	.navbar-brand {
-		color: $brand-primary;
-	}
-	.page {
-		.header,
-		.footer {
+   padding-top: 100px;
+   @include media-breakpoint-up(sm) {
+      padding-top: 120px;
+   }
+   @include media-breakpoint-up(md) {
+      padding-top: 150px;
+   }
+   @include media-breakpoint-up(lg) {
+      padding-top: 250px;
+   }
+   .header {
+      .navbar {
+         @include bg-color($white, 0.85);
+         @include media-breakpoint-down(xs) {
+         // @include bg-color($white, 1);
+         }
+         padding: map-get($grid-gutter-widths,xl) * .5;
 
-		}
-	}
+         @include media-breakpoint-down(lg) {
+            padding: map-get($grid-gutter-widths,lg) * .5;
+         }
+         @include media-breakpoint-down(md) {
+            padding: map-get($grid-gutter-widths,md) * .5;
+         }
+         @include media-breakpoint-down(sm) {
+            padding: map-get($grid-gutter-widths,sm) * .5;
+         }
+         @include media-breakpoint-down(xs) {
+            padding: map-get($grid-gutter-widths,xs) * .5;
+         }
+
+         .navbar-brand {
+            display: block;
+            width: 210px;
+            height: 22px;
+            background-image: url(../img/logo/logo-nopo-900.svg);
+            background-size: auto 100%;
+            background-repeat: no-repeat;
+            background-position: left center;
+            @include text-hide;
+            @include media-breakpoint-up(sm) {
+               width: 210px;
+               height: 25px;
+            }
+            @include media-breakpoint-up(md) {
+               width: 210px;
+               height: 32px;
+            }
+         }
+      }
+   }
+   .main {
+      > .container {
+         @include media-breakpoint-down(xs) {
+            // padding-left: 0;
+            // padding-right: 0;
+         }
+      }
+   }
 }
 
-// empty.html
-.tpl  {
-	.page {
-		.header,
-		.footer {
-			min-height: 100px;
-			background-color: $gray-lighter;
-		}
-	}
-}
-
-.btn {
-   font-family: $font-family-sans-serif;
-   text-transform: uppercase;
-   font-weight: 400;
+// TOOLTIP
+.tooltip {
+   .tooltip-inner {
+      font-family: $font-family-condensed;
+      text-transform: uppercase;
+      font-weight: 400;
+      padding-top: 3px;
+      font-size: $font-size-xs;
+      border-radius: 0;
+   }
 }
 
 // MEDIA QUERIES (samples)

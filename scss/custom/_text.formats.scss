@@ -5,6 +5,7 @@
 /**
  * COLORS
 **/
+
 .text-primary        { color: $brand-primary; }    // violett
 .text-secondary      { color: $brand-secondary; }  // orange
 
@@ -42,7 +43,7 @@
 .display-4  { font-size: $display4-size !important; }
 
 p {
-   margin-top: $spacer-y;
+   // margin-top: $spacer-y;
 }
 h2,
 h3,
@@ -95,7 +96,7 @@ small,
    font-family: $font-family-serif;
    color: $gray;
    margin-top: 0;
-   margin-bottom: ($spacer-y * 3);
+   margin-bottom: ($spacer-y * 1);
 }
 
 /* BLOCKQUOTE */

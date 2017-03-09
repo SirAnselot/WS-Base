@@ -21,16 +21,17 @@
 		"web"
 	],
 	"main": "public",
-	"dist": "public",
+	"dist": "dist",
 	"config": {
 		"client": "custom",
 		"files": {
 			"js": {
 				"app": {
 					"src": [
-						"public/js/app/app.js"
+						"public/js/app/app.js",
+                  "public/js/ws/*.js"
 					],
-					"dest": "public/js"
+					"dest": "dist/js"
 				},
 				"vendor": {
 					"src": "../vendor",
