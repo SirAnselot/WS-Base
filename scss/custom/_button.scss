@@ -1,0 +1,213 @@
+/**
+ * Round BUTTONS
+ * Slider- & Article-Navi, Pager, Totop, etc.
+**/
+
+// TWBS button base-class
+.btn {
+   cursor: pointer;
+   font-family: $font-family-sans-serif;
+   text-transform: uppercase;
+   font-weight: 400;
+
+   // ROUND BUTTON base-class
+   &.btn-square,
+   &.btn-round {
+      &:focus,
+      &:active,
+      &.active {
+         box-shadow: none;
+      }
+      &,
+      &.btn-base {
+         width: 2.5rem;
+         height: 2.5rem;
+         padding: 0;
+         font-size: 145%;
+         &.middle {
+            margin-top:  -1.25rem;
+         }
+         &.central {
+            margin-left: -1.25rem;
+         }
+      }
+      &.btn-lg {
+         width: 3.2rem;
+         height: 3.2rem;
+         padding: 0;
+         font-size: 160%;
+         &.middle {
+            margin-top:  -1.6rem;
+         }
+         &.central {
+            margin-left: -1.6rem;
+         }
+      }
+      &.btn-sm {
+         width: 1.8rem;
+         height: 1.8rem;
+         padding: 0;
+         font-size: 100%;
+         &.middle {
+            margin-top:  -0.9rem;
+         }
+         &.central {
+            margin-left: -0.9rem;
+         }
+      }
+      > .icon {
+         display: block;
+         position: relative;
+         top: -0.05rem;
+         left: 0.05rem;
+         &:before {
+            font-size: 100%;
+         }
+      }
+   }
+   &.btn-round {
+      border-radius: 50%;
+   }
+
+   // BUTTON (fixed)
+   &.abs {
+      position: absolute;
+   }
+   &.middle {
+      &,
+      &.from-top {
+         top: 50%;
+         bottom: auto;
+      }
+      &.from-bottom {
+         top: auto;
+         bottom: 50%;
+      }
+   }
+
+   &.central {
+      &,
+      &.from-left {
+         left: 50%;
+         right: auto;
+      }
+      &.from-right {
+         left: auto;
+         right: 50%;
+      }
+   }
+
+   &.top {
+      bottom: auto;
+      top: map-get($grid-gutter-widths,xl);
+      @include media-breakpoint-down(lg) {
+         top: map-get($grid-gutter-widths,lg);
+      }
+      @include media-breakpoint-down(md) {
+         top: map-get($grid-gutter-widths,md);
+      }
+      @include media-breakpoint-down(sm) {
+         top: map-get($grid-gutter-widths,sm);
+      }
+      @include media-breakpoint-down(xs) {
+         top: map-get($grid-gutter-widths,xs);
+      }
+      &.right,
+      &.left {
+         @include media-breakpoint-down(sm) {
+            position: absolute;
+         }
+      }
+   }
+   &.right {
+      left: auto;
+      right: map-get($grid-gutter-widths,xl);
+      @include media-breakpoint-down(lg) {
+         right: map-get($grid-gutter-widths,lg);
+      }
+      @include media-breakpoint-down(md) {
+         right: map-get($grid-gutter-widths,md);
+      }
+      @include media-breakpoint-down(sm) {
+         position: relative;
+         padding: 0.45rem 0.55rem;
+         float: right;
+      }
+   }
+   &.bottom {
+      top: auto;
+      bottom: map-get($grid-gutter-widths,xl);
+      @include media-breakpoint-down(lg) {
+         bottom: map-get($grid-gutter-widths,lg);
+      }
+      @include media-breakpoint-down(md) {
+         bottom: map-get($grid-gutter-widths,md);
+      }
+      @include media-breakpoint-down(sm) {
+         bottom: map-get($grid-gutter-widths,sm);
+      }
+      @include media-breakpoint-down(xs) {
+         bottom: map-get($grid-gutter-widths,xs);
+      }
+   }
+   &.left {
+      right: auto;
+      left: map-get($grid-gutter-widths,xl);
+      @include media-breakpoint-down(lg) {
+         left: map-get($grid-gutter-widths,lg);
+      }
+      @include media-breakpoint-down(md) {
+         left: map-get($grid-gutter-widths,md);
+      }
+      @include media-breakpoint-down(sm) {
+         position: relative;
+         padding: 0.45rem 0.55rem;
+         float: left;
+      }
+   }
+
+   &.btn-link {
+      &:focus,
+      &:active,
+      &.active {
+         box-shadow: none;
+      }
+   }
+
+   // toggle button f.e. for accordion behavior
+   &.toggle-btn {
+      > .icon:before {
+         margin-left: 0;
+         margin-right: 0;
+      }
+      & {
+         color: $brand-info;
+         > .icon.icn-show {
+            display: inline-block;
+         }
+         > .icon.icn-hide {
+            display: none;
+         }
+      }
+      &.collapsed {
+         color: $gray-lighter;
+         &:hover,
+         &:focus {
+            color: $brand-info;
+         }
+         > .icon.icn-show {
+            display: none;
+         }
+         > .icon.icn-hide {
+            display: inline-block;
+         }
+      }
+      &.btn-link {
+         padding: 0;
+      }
+   }
+
+   &.to-top {
+      color: $gray-darker;
+   }
+}

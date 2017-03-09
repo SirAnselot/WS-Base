@@ -1,0 +1,274 @@
+// mixins 'custom'
+//
+//
+
+/* ====================================================================== */
+/* ARTRMX LOGO
+/*
+/* ====================================================================== */
+
+@mixin weigelstein ( $height: 110px ) {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDAgMTEwIj48c3R5bGUgdHlwZT0idGV4dC9jc3MiPi5zdDB7ZmlsbDojRkZGRkZGO308L3N0eWxlPjxnPjxlbGxpcHNlIGN4PSI1NSIgY3k9IjU1IiByeD0iNTAiIHJ5PSI1MCIvPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik04Mi41LDM5LjRoLTRoLTYuNHYyLjdoNS44bC0wLjIsMC42TDY3LjUsNjguNGwtOS40LTE3LjhjMC44LTEuNiwxLjUtMy4yLDIuMy00LjljMC44LTEuNywxLjEtMy40LDEuMS01LjJjMC0wLjctMC4xLTEuNS0wLjQtMi4zYy0wLjItMC44LTAuNi0xLjYtMS4xLTIuM2MtMC40LTAuNy0xLTEuNC0xLjctMS45Yy0wLjctMC41LTEuNS0wLjctMi40LTAuN2MtMC42LDAtMS4xLDAuMS0xLjUsMC4ybDYuNi03LjdsLTkuOSw4LjVsLTkuOS04LjVsOC42LDkuOWwtOC42LDkuOWw4LjgtNy41Yy0wLjEsMC4zLTAuMiwwLjUtMC4yLDAuOGMtMC4yLDEtMC4zLDItMC4zLDIuOWMwLDIuNCwwLjQsNC43LDEuMSw2LjljMC44LDIuMiwxLjgsNC4zLDIuOSw2LjRsLTYuMiwxMy4zTDM1LjIsNDIuMWg1di0yLjdoLTUuOGgtMmgtMi4yaC0yLjZoLTUuN3YyLjdoNi43bDE1LjksMzlsMTAuNC0yMy41bDEwLjcsMjMuMmwxNS45LTM4LjdoNi44di0yLjdIODIuNXogTTQ0LjQsNzQuNkwzMS4yLDQyLjFoMi4zTDQ2LDcwLjRMNDQuNCw3NC42eiBNNTQuNCwzNi40YzAuMi0wLjYsMC43LTEsMS41LTFjMC41LDAsMSwwLjIsMS41LDAuNmMwLjQsMC4zLDAuOCwwLjgsMSwxLjNjMC4zLDAuNSwwLjUsMSwwLjYsMS42YzAuMiwwLjYsMC4yLDEuMSwwLjIsMS41YzAsMS4zLTAuMiwyLjYtMC43LDMuOWMtMC41LDEuMi0xLDIuNC0xLjYsMy42Yy0wLjMtMC42LTAuNi0xLjMtMC45LTIuMmMtMC4zLTAuOS0wLjYtMS44LTAuOS0yLjdjLTAuMi0wLjktMC40LTEuOS0wLjYtMi43Yy0wLjEtMC40LTAuMS0wLjctMC4yLTFjMC0wLjEsMC0wLjIsMC0wLjNjMC0wLjMtMC4xLTAuNy0wLjEtMUM1NC4yLDM3LjYsNTQuMywzNyw1NC40LDM2LjR6IE02NSw3NC40TDU0LjgsNTMuNWMtMC45LTEuNy0xLjctMy41LTIuNC01LjNjLTAuNi0xLjktMC45LTMuOC0wLjktNS43YzAtMC4zLDAuMi0xLjMsMC4yLTEuNmwwLjItMWMwLjIsMS45LDAuNiwzLDEuMyw0LjhjMC43LDEuNywxLjUsMy40LDIuMyw1LjFjMi4xLDQuMiw0LjIsOC40LDYuMywxMi41bDQuNCw4LjdMNjUsNzQuNHoiLz48L2c+PGc+PHJlY3QgeD0iMTM4LjciIHk9IjYuOSIgdHJhbnNmb3JtPSJtYXRyaXgoMC43MDY5IC0wLjcwNzMgMC43MDczIDAuNzA2OSAzNS4xOTE2IDEwMS41ODkpIiB3aWR0aD0iMi45IiBoZWlnaHQ9IjIuOSIvPjxyZWN0IHg9IjEzOC43IiB5PSIxMy41IiB0cmFuc2Zvcm09Im1hdHJpeCgwLjcwNzMgLTAuNzA3IDAuNzA3IDAuNzA3MyAzMC40Mjg2IDEwMy40ODMpIiB3aWR0aD0iMi45IiBoZWlnaHQ9IjIuOSIvPjxyZWN0IHg9IjEzOC43IiB5PSIyMC4yIiB0cmFuc2Zvcm09Im1hdHJpeCgwLjcwNzEgLTAuNzA3MSAwLjcwNzEgMC43MDcxIDI1LjczNTIgMTA1LjQ2MikiIHdpZHRoPSIyLjkiIGhlaWdodD0iMi45Ii8+PHJlY3QgeD0iMTM4LjciIHk9IjI2LjkiIHRyYW5zZm9ybT0ibWF0cml4KDAuNzA2OSAtMC43MDczIDAuNzA3MyAwLjcwNjkgMjEuMDQ0OSAxMDcuNDUxNCkiIHdpZHRoPSIyLjkiIGhlaWdodD0iMi45Ii8+PHJlY3QgeD0iMTM4LjciIHk9IjMzLjUiIHRyYW5zZm9ybT0ibWF0cml4KDAuNzA3MSAtMC43MDcxIDAuNzA3MSAwLjcwNzEgMTYuMzA5NCAxMDkuMzcxNykiIHdpZHRoPSIyLjkiIGhlaWdodD0iMi45Ii8+PHJlY3QgeD0iMTM4LjciIHk9IjQwLjIiIHRyYW5zZm9ybT0ibWF0cml4KDAuNzA3IC0wLjcwNzIgMC43MDcyIDAuNzA3IDExLjU5NzUgMTExLjMyODkpIiB3aWR0aD0iMi45IiBoZWlnaHQ9IjIuOSIvPjxyZWN0IHg9IjEzOC43IiB5PSI0Ni45IiB0cmFuc2Zvcm09Im1hdHJpeCgwLjcwNzMgLTAuNzA2OSAwLjcwNjkgMC43MDczIDYuODYxNCAxMTMuMjM2NCkiIHdpZHRoPSIyLjkiIGhlaWdodD0iMi45Ii8+PHJlY3QgeD0iMTM4LjciIHk9IjUzLjUiIHRyYW5zZm9ybT0ibWF0cml4KDAuNzA3MSAtMC43MDcxIDAuNzA3MSAwLjcwNzEgMi4xNjY2IDExNS4yMzAyKSIgd2lkdGg9IjIuOSIgaGVpZ2h0PSIyLjkiLz48cmVjdCB4PSIxMzguNyIgeT0iNjAuMiIgdHJhbnNmb3JtPSJtYXRyaXgoMC43MDY5IC0wLjcwNzMgMC43MDczIDAuNzA2OSAtMi41MzMgMTE3LjIyMjEpIiB3aWR0aD0iMi45IiBoZWlnaHQ9IjIuOSIvPjxyZWN0IHg9IjEzOC43IiB5PSI2Ni45IiB0cmFuc2Zvcm09Im1hdHJpeCgwLjcwNzMgLTAuNzA3IDAuNzA3IDAuNzA3MyAtNy4yNzU0IDExOS4wOTU3KSIgd2lkdGg9IjIuOSIgaGVpZ2h0PSIyLjkiLz48cmVjdCB4PSIxMzguNyIgeT0iNzMuNSIgdHJhbnNmb3JtPSJtYXRyaXgoMC43MDcxIC0wLjcwNzEgMC43MDcxIDAuNzA3MSAtMTEuOTc3OCAxMjEuMDgzNikiIHdpZHRoPSIyLjkiIGhlaWdodD0iMi45Ii8+PHJlY3QgeD0iMTM4LjciIHk9IjgwLjIiIHRyYW5zZm9ybT0ibWF0cml4KDAuNzA2OSAtMC43MDczIDAuNzA3MyAwLjcwNjkgLTE2LjY3OTcgMTIzLjA4NDYpIiB3aWR0aD0iMi45IiBoZWlnaHQ9IjIuOSIvPjxyZWN0IHg9IjEzOC43IiB5PSI4Ni45IiB0cmFuc2Zvcm09Im1hdHJpeCgwLjcwNzMgLTAuNzA3IDAuNzA3IDAuNzA3MyAtMjEuNDE0NCAxMjQuOTUwNCkiIHdpZHRoPSIyLjkiIGhlaWdodD0iMi45Ii8+PHJlY3QgeD0iMTM4LjciIHk9IjkzLjUiIHRyYW5zZm9ybT0ibWF0cml4KDAuNzA3MyAtMC43MDcgMC43MDcgMC43MDczIC0yNi4xMjc0IDEyNi45MDIpIiB3aWR0aD0iMi45IiBoZWlnaHQ9IjIuOSIvPjxyZWN0IHg9IjEzOC43IiB5PSIxMDAuMiIgdHJhbnNmb3JtPSJtYXRyaXgoMC43MDczIC0wLjcwNyAwLjcwNyAwLjcwNzMgLTMwLjg0MDQgMTI4Ljg1MzUpIiB3aWR0aD0iMi45IiBoZWlnaHQ9IjIuOSIvPjwvZz48cGF0aCBkPSJNNDM1LDY3LjV2LTI1YzAtMC4zLTAuMS0wLjQtMC40LTAuNGgtMy45Yy0wLjMsMC0wLjQsMC4xLTAuNCwwLjR2NS4yYzAsMy4yLDAuMiw5LjEsMC4yLDEwLjFsLTAuMiwwYy0wLjEtMC4zLTAuNy0xLjgtMC45LTIuMWwtNy4zLTEzLjVjLTAuMS0wLjEtMC4yLTAuMi0wLjQtMC4yaC0zLjRjLTAuMywwLTAuNCwwLjEtMC40LDAuNHYyNWMwLDAuMywwLjEsMC40LDAuNCwwLjRoMy45YzAuMywwLDAuNC0wLjEsMC40LTAuNHYtNS4xYzAtMy4yLTAuMi05LjEtMC4yLTEwLjFsMC4yLDBjMC4xLDAuMywwLjcsMS44LDAuOSwyLjFsNy4zLDEzLjRjMC4xLDAuMSwwLjIsMC4yLDAuNCwwLjJoMy40QzQzNC45LDY3LjksNDM1LDY3LjgsNDM1LDY3LjUgTTQwNi44LDY3LjV2LTI1YzAtMC4zLTAuMS0wLjQtMC40LTAuNGgtMy45Yy0wLjMsMC0wLjQsMC4xLTAuNCwwLjR2MjVjMCwwLjMsMC4xLDAuNCwwLjQsMC40aDMuOUM0MDYuNyw2Ny45LDQwNi44LDY3LjgsNDA2LjgsNjcuNSBNMzkxLjYsNjcuNVY2NGMwLTAuMy0wLjEtMC40LTAuNC0wLjRoLTkuOGMtMC4zLDAtMC40LTAuMS0wLjQtMC40di01LjhjMC0wLjMsMC4xLTAuNCwwLjQtMC40aDhjMC4zLDAsMC40LTAuMSwwLjQtMC40di0zLjVjMC0wLjMtMC4xLTAuNC0wLjQtMC40aC04Yy0wLjMsMC0wLjQtMC4xLTAuNC0wLjR2LTUuNWMwLTAuMywwLjEtMC40LDAuNC0wLjRoOS44YzAuMywwLDAuNC0wLjEsMC40LTAuNHYtMy41YzAtMC4zLTAuMS0wLjQtMC40LTAuNGgtMTQuNWMtMC4zLDAtMC40LDAuMS0wLjQsMC40djI1YzAsMC4zLDAuMSwwLjQsMC40LDAuNGgxNC41QzM5MS41LDY3LjksMzkxLjYsNjcuOCwzOTEuNiw2Ny41IE0zNjYuOCw0NnYtMy41YzAtMC4zLTAuMS0wLjQtMC40LTAuNGgtMTQuNGMtMC4zLDAtMC40LDAuMS0wLjQsMC40VjQ2YzAsMC4zLDAuMSwwLjQsMC40LDAuNGg0LjVjMC4zLDAsMC40LDAuMSwwLjQsMC40djIwLjdjMCwwLjMsMC4xLDAuNCwwLjQsMC40aDMuOWMwLjMsMCwwLjQtMC4xLDAuNC0wLjRWNDYuOGMwLTAuMywwLjEtMC40LDAuNC0wLjRoNC41QzM2Ni43LDQ2LjQsMzY2LjgsNDYuMywzNjYuOCw0NiBNMzQzLjMsNjEuMWMwLTUtMy4zLTYuOS02LjQtOC4zYy0yLjQtMS4xLTQuOC0xLjctNC44LTMuOGMwLTEuNiwxLjQtMywzLTNoMC43YzEuMSwwLDIuMiwwLjcsMi45LDIuNGMwLjEsMC4yLDAuMiwwLjMsMC4zLDAuM2MwLjIsMCwwLjMtMC4xLDAuNS0wLjJsMy4zLTEuN2MwLjItMC4xLDAuMi0wLjIsMC4yLTAuM2MwLTAuMi0wLjQtMC45LTAuOC0xLjVjLTEuMi0xLjktMy4xLTMuMy02LjUtMy4zaC0wLjdjLTQuNywwLTcuNiwzLTcuNiw3LjNjMCw0LjgsMy42LDYuNSw2LjgsOC4xYzIuMiwxLDQuNCwxLjgsNC40LDQuMWMwLDEuNi0xLjQsMy0zLDNIMzM0Yy0xLjEsMC0yLjItMC43LTIuOS0yLjRjLTAuMS0wLjItMC4yLTAuMy0wLjMtMC4zYy0wLjIsMC0wLjMsMC4xLTAuNSwwLjJsLTMuMywxLjdjLTAuMiwwLjEtMC4yLDAuMi0wLjIsMC4zYzAsMC4yLDAuNCwwLjksMC44LDEuNWMxLjIsMS45LDMuMSwzLjMsNi41LDMuM2gxLjZDMzQwLjQsNjguMywzNDMuMyw2NS4zLDM0My4zLDYxLjEgTTMyMC4yLDY3LjVWNjRjMC0wLjMtMC4xLTAuNC0wLjQtMC40SDMxMGMtMC4zLDAtMC40LTAuMS0wLjQtMC40VjQyLjVjMC0wLjMtMC4xLTAuNC0wLjQtMC40aC0zLjljLTAuMywwLTAuNCwwLjEtMC40LDAuNHYyNWMwLDAuMywwLjEsMC40LDAuNCwwLjRoMTQuNUMzMjAsNjcuOSwzMjAuMiw2Ny44LDMyMC4yLDY3LjUgTTI5NC40LDY3LjVWNjRjMC0wLjMtMC4xLTAuNC0wLjQtMC40aC05LjhjLTAuMywwLTAuNC0wLjEtMC40LTAuNHYtNS44YzAtMC4zLDAuMS0wLjQsMC40LTAuNGg4YzAuMywwLDAuNC0wLjEsMC40LTAuNHYtMy41YzAtMC4zLTAuMS0wLjQtMC40LTAuNGgtOGMtMC4zLDAtMC40LTAuMS0wLjQtMC40di01LjVjMC0wLjMsMC4xLTAuNCwwLjQtMC40aDkuOGMwLjMsMCwwLjQtMC4xLDAuNC0wLjR2LTMuNWMwLTAuMy0wLjEtMC40LTAuNC0wLjRoLTE0LjVjLTAuMywwLTAuNCwwLjEtMC40LDAuNHYyNWMwLDAuMywwLjEsMC40LDAuNCwwLjRIMjk0QzI5NC4zLDY3LjksMjk0LjQsNjcuOCwyOTQuNCw2Ny41IE0yNjguOSw0Ni41YzAtMC4yLTAuNC0wLjktMC44LTEuNWMtMS4yLTEuOS0zLjEtMy4zLTYuNS0zLjNoLTIuN2MtNC43LDAtNy42LDMtNy42LDcuM3YxMi4xYzAsNC4zLDMsNy4zLDcuNiw3LjNoMmM0LjYsMCw3LjYtMyw3LjYtNy4zdi02LjJjMC0wLjMtMC4xLTAuNC0wLjQtMC40aC04LjZjLTAuMywwLTAuNCwwLjEtMC40LDAuNHYzLjVjMCwwLjMsMC4xLDAuNCwwLjQsMC40aDMuOWMwLjMsMCwwLjQsMC4xLDAuNCwwLjR2MS45YzAsMS42LTEuMywzLTIuOSwzaC0yYy0xLjYsMC0zLTEuNC0zLTNWNDguOWMwLTEuNiwxLjQtMywzLTNoMi43YzEuMSwwLDIuMiwwLjcsMi45LDIuNGMwLjEsMC4yLDAuMiwwLjMsMC4zLDAuM2MwLjIsMCwwLjMtMC4xLDAuNS0wLjJsMy4zLTEuN0MyNjguOCw0Ni43LDI2OC45LDQ2LjYsMjY4LjksNDYuNSBNMjQwLjUsNjcuNXYtMjVjMC0wLjMtMC4xLTAuNC0wLjQtMC40aC0zLjljLTAuMywwLTAuNCwwLjEtMC40LDAuNHYyNWMwLDAuMywwLjEsMC40LDAuNCwwLjRoMy45QzI0MC4zLDY3LjksMjQwLjUsNjcuOCwyNDAuNSw2Ny41IE0yMjUuMyw2Ny41VjY0YzAtMC4zLTAuMS0wLjQtMC40LTAuNGgtOS44Yy0wLjMsMC0wLjQtMC4xLTAuNC0wLjR2LTUuOGMwLTAuMywwLjEtMC40LDAuNC0wLjRoOGMwLjMsMCwwLjQtMC4xLDAuNC0wLjR2LTMuNWMwLTAuMy0wLjEtMC40LTAuNC0wLjRoLThjLTAuMywwLTAuNC0wLjEtMC40LTAuNHYtNS41YzAtMC4zLDAuMS0wLjQsMC40LTAuNGg5LjhjMC4zLDAsMC40LTAuMSwwLjQtMC40di0zLjVjMC0wLjMtMC4xLTAuNC0wLjQtMC40aC0xNC41Yy0wLjMsMC0wLjQsMC4xLTAuNCwwLjR2MjVjMCwwLjMsMC4xLDAuNCwwLjQsMC40aDE0LjVDMjI1LjIsNjcuOSwyMjUuMyw2Ny44LDIyNS4zLDY3LjUgTTIwMC45LDQyLjRjMC0wLjItMC4xLTAuMy0wLjQtMC4zaC00LjJjLTAuMiwwLTAuNCwwLjEtMC40LDAuM2wtMi40LDEyLjdjLTAuMSwwLjQtMC4zLDIuMi0wLjQsMi41aC0wLjJjLTAuMS0wLjMtMC41LTIuMi0wLjUtMi41TDE4OSw0Mi4zYzAtMC4yLTAuMi0wLjMtMC40LTAuM2gtMi4xYy0wLjIsMC0wLjQsMC4xLTAuNCwwLjNsLTMuNCwxMi44Yy0wLjEsMC4zLTAuNSwyLjItMC41LDIuNUgxODJjLTAuMS0wLjMtMC40LTIuMy0wLjQtMi41bC0yLjQtMTIuN2MwLTAuMi0wLjItMC4zLTAuNC0wLjNoLTQuMmMtMC4zLDAtMC40LDAuMS0wLjQsMC4zYzAsMC4yLDAuMSwwLjcsMC4yLDEuMWw1LjIsMjQuMWMwLDAuMiwwLjIsMC4zLDAuNCwwLjNoM2MwLjIsMCwwLjQtMC4xLDAuNC0wLjNsMy42LTEyLjRjMC4xLTAuMywwLjQtMS45LDAuNS0yLjNoMC4xYzAuMSwwLjMsMC40LDIsMC41LDIuM2wzLjYsMTIuNGMwLDAuMiwwLjIsMC4zLDAuNCwwLjNoM2MwLjIsMCwwLjQtMC4xLDAuNC0wLjNsNS4yLTI0LjFDMjAwLjgsNDMuMSwyMDAuOSw0Mi42LDIwMC45LDQyLjQiLz48L3N2Zz4=");
+  background-repeat: no-repeat;
+  background-size: auto $height;
+  background-position: left center;
+}
+
+// THE FLY
+@mixin fly($size: 110px) {
+   display: block;
+   position: absolute;
+   width: $size;
+   height: $size;
+   margin: -($size * 0.5);
+   left: 50%;
+   top: 50%;
+   z-index: $zindex-modal;
+   background-repeat: no-repeat;
+   background-position: center center;
+   @include img-retina('../img/fly.png','../img/fly@2x.png', $size, $size);
+   background-size: $size $size;
+}
+
+// CARET
+@mixin caret-down ( $width: 6px, $color: rgb(255,255,255)) {
+   display: inline-block;
+   width: 0;
+   height: 0;
+   margin-left: -($width * 1);
+   vertical-align: middle;
+   border-top:   $width solid $color;
+   border-right: $width solid transparent;
+   border-left:  $width solid transparent;
+}
+
+@mixin caret-up ( $width: 6px, $color: rgb(255,255,255)) {
+   display: inline-block;
+   width: 0;
+   height: 0;
+   margin-left: -($width * 1);
+   vertical-align: middle;
+   border-bottom:  $width solid $color    !important;
+   border-right: $width solid transparent !important;
+   border-left:  $width solid transparent !important;
+}
+
+@mixin tab-focus( $bg: transparent ) {
+  // Default
+   outline: 0;
+   @include bg-color($bg);
+   // WebKit
+   outline: 0 none -webkit-focus-ring-color;
+   outline-offset: 0px;
+}
+
+/* ====================================================================== */
+/* RGBA CONVERTER
+/*
+/* ====================================================================== */
+
+// – background-color
+@mixin bg-color($color: $white, $alpha: 1) {
+   $color-rgba: rgba(red($color), green($color), blue($color), $alpha);
+   background-color: $color-rgba;
+}
+
+// – color
+@mixin type-color($color: $white, $alpha: 1) {
+   $color-rgba: rgba(red($color), green($color), blue($color), $alpha);
+   color: $color-rgba;
+}
+
+// – border-color
+@mixin border-color($color: $white, $alpha: 1) {
+   $color-rgba: rgba(red($color), green($color), blue($color), $alpha);
+   border-color: $color-rgba;
+}
+
+/*  ====================================================================== */
+/*  ICONS
+/*
+/* ====================================================================== */
+
+// icon-base-class
+@mixin icn ($width: 12px, $height:12px) {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: $width $height;
+  width: $width;
+  height: $height;
+}
+// arrow-left
+@mixin icn-arrow-left($size:40px) {
+  @include icn($size, $size);
+  background-image: url(../img/svg/slim-arrow-left-white.svg);
+}
+// arrow-right
+@mixin icn-arrow-right($size:40px) {
+  @include icn($size, $size);
+  background-image: url(../img/svg/slim-arrow-right-white.svg);
+}
+
+// hamburger black
+@mixin icn-hamburger-black($size:40px) {
+  @include icn($size, $size);
+  background-image: url(../img/svg/hamburger-black.svg);
+}
+// hamburger gray
+@mixin icn-hamburger-gray($size:40px) {
+  @include icn($size, $size);
+  background-image: url(../img/svg/hamburger-gray.svg);
+}
+// hamburger white
+@mixin icn-hamburger-white($size:40px) {
+  @include icn($size, $size);
+  background-image: url(../img/svg/hamburger-white.svg);
+}
+// close white
+@mixin icn-close-white($size:40px) {
+  @include icn($size, $size);
+  background-image: url(../img/svg/close-white.svg);
+}
+// close black
+@mixin icn-close-black($size:40px) {
+  @include icn($size, $size);
+  background-image: url(../img/svg/close-black.svg);
+}
+
+// search (lupe)
+@mixin icn-search($width:48px, $height:48px) {
+  @include icn($width, $height);
+  background-image: url(../img/svg/search.svg);
+}
+
+//  SOCIAL ICONS
+//
+//  with ball
+//  fb-ball-gray
+@mixin fb-ball-gray($width:80px, $height:80px) {
+  @include icn($width, $height);
+  background-image: url(../img/svg/fb-ball.svg);
+}
+//  google-ball-gray
+@mixin google-ball-gray($width:80px, $height:80px) {
+    @include icn($width, $height);
+    background-image: url(../img/svg/google-ball.svg);
+}
+//  twitter-ball-gray
+@mixin twitter-ball-gray($width:80px, $height:80px) {
+    @include icn($width, $height);
+    background-image: url(../img/svg/twitter-ball.svg);
+}
+//  insta-ball-gray
+@mixin insta-ball-gray($width:80px, $height:80px) {
+    @include icn($width, $height);
+    background-image: url(../img/svg/insta-ball.svg);
+}
+// youtube-ball-gray
+@mixin youtube-ball-gray($width:80px, $height:80px) {
+    @include icn($width, $height);
+    background-image: url(../img/svg/youtube-ball.svg);
+}
+
+//  without ball
+//  fb-gray
+@mixin fb-gray($width:80px, $height:80px) {
+    @include icn($width, $height);
+    background-image: url(../img/svg/fb.svg);
+}
+//  google-ball-gray
+@mixin google-gray($width:80px, $height:80px) {
+    @include icn($width, $height);
+    background-image: url(../img/svg/google.svg);
+}
+//  twitter--gray
+@mixin twitter-gray($width:80px, $height:80px) {
+    @include icn($width, $height);
+    background-image: url(../img/svg/twitter.svg);
+}
+//  insta-gray
+@mixin insta-gray($width:80px, $height:80px) {
+    @include icn($width, $height);
+    background-image: url(../img/svg/insta.svg);
+}
+//  youtube-gray
+@mixin youtube-gray($width:80px, $height:80px) {
+    @include icn($width, $height);
+    background-image: url(../img/svg/youtube.svg);
+}
+
+/*  ====================================================================== */
+/*  STRIPED BACKGROUNDS
+/*
+/* ====================================================================== */
+
+@mixin svg-bg( $size: 10px ) {
+  background-repeat: repeat;
+  background-size: $size $size;
+  background-position: center center;
+}
+
+// BLACK
+@mixin stripes-black-005 ( $background: $gray-darker, $size: 10px ) {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMCAxMCI+PGcgb3BhY2l0eT0iMC4wNSI+PHBvbHlnb24gcG9pbnRzPSI2LDAgMCw2IDAsOCA4LDAiLz48cG9seWdvbiBwb2ludHM9IjYsMTAgOCwxMCAxMCw4IDEwLDYiLz48L2c+PC9zdmc+");
+  background-color: $background;
+  @include svg-bg($size);
+}
+
+@mixin stripes-black-01 ( $background: $gray-darker, $size: 10px ) {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMCAxMCI+PGcgb3BhY2l0eT0iMC4xIj48cG9seWdvbiBwb2ludHM9IjYsMCAwLDYgMCw4IDgsMCIvPjxwb2x5Z29uIHBvaW50cz0iNiwxMCA4LDEwIDEwLDggMTAsNiIvPjwvZz48L3N2Zz4=");
+  background-color: $background;
+  @include svg-bg($size);
+}
+
+// WHITE
+@mixin stripes-01 ( $background: $gray-light, $size: 10px ) {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMCAxMCI+PGcgb3BhY2l0eT0iMC4xIj48cG9seWdvbiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjYsMCAwLDYgMCw4IDgsMCIvPjxwb2x5Z29uIGZpbGw9IiNGRkZGRkYiIHBvaW50cz0iNiwxMCA4LDEwIDEwLDggMTAsNiIvPjwvZz48L3N2Zz4=");
+  background-color: $background;
+  @include svg-bg($size);
+}
+@mixin stripes-02 ( $background: $gray-light, $size: 10px ) {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMCAxMCI+PGcgb3BhY2l0eT0iMC4yIj48cG9seWdvbiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjYsMCAwLDYgMCw4IDgsMCIvPjxwb2x5Z29uIGZpbGw9IiNGRkZGRkYiIHBvaW50cz0iNiwxMCA4LDEwIDEwLDggMTAsNiIvPjwvZz48L3N2Zz4=");
+  background-color: $background;
+  @include svg-bg($size);
+}
+@mixin stripes-03 ( $background: $gray-light, $size: 10px ) {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMCAxMCI+PGcgb3BhY2l0eT0iMC4zIj48cG9seWdvbiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjYsMCAwLDYgMCw4IDgsMCIvPjxwb2x5Z29uIGZpbGw9IiNGRkZGRkYiIHBvaW50cz0iNiwxMCA4LDEwIDEwLDggMTAsNiIvPjwvZz48L3N2Zz4=");
+  background-color: $background;
+  @include svg-bg($size);
+}
+@mixin stripes-04 ( $background: $gray-light, $size: 10px ) {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMCAxMCI+PGcgb3BhY2l0eT0iMC40Ij48cG9seWdvbiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjYsMCAwLDYgMCw4IDgsMCIvPjxwb2x5Z29uIGZpbGw9IiNGRkZGRkYiIHBvaW50cz0iNiwxMCA4LDEwIDEwLDggMTAsNiIvPjwvZz48L3N2Zz4=");
+  background-color: $background;
+  @include svg-bg($size);
+}
+@mixin stripes-05 ( $background: $gray-light, $size: 10px ) {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMCAxMCI+PGcgb3BhY2l0eT0iMC41Ij48cG9seWdvbiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjYsMCAwLDYgMCw4IDgsMCIvPjxwb2x5Z29uIGZpbGw9IiNGRkZGRkYiIHBvaW50cz0iNiwxMCA4LDEwIDEwLDggMTAsNiIvPjwvZz48L3N2Zz4=");
+  background-color: $background;
+  @include svg-bg($size);
+}
+@mixin stripes-06 ( $background: $gray-light, $size: 10px ) {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMCAxMCI+PGcgb3BhY2l0eT0iMC42Ij48cG9seWdvbiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjYsMCAwLDYgMCw4IDgsMCIvPjxwb2x5Z29uIGZpbGw9IiNGRkZGRkYiIHBvaW50cz0iNiwxMCA4LDEwIDEwLDggMTAsNiIvPjwvZz48L3N2Zz4=");
+  background-color: $background;
+  @include svg-bg($size);
+}
+@mixin stripes-07 ( $background: $gray-light, $size: 10px ) {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMCAxMCI+PGcgb3BhY2l0eT0iMC43Ij48cG9seWdvbiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjYsMCAwLDYgMCw4IDgsMCIvPjxwb2x5Z29uIGZpbGw9IiNGRkZGRkYiIHBvaW50cz0iNiwxMCA4LDEwIDEwLDggMTAsNiIvPjwvZz48L3N2Zz4=");
+  background-color: $background;
+  @include svg-bg($size);
+}
+@mixin stripes-08 ( $background: $gray-light, $size: 10px ) {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMCAxMCI+PGcgb3BhY2l0eT0iMC44Ij48cG9seWdvbiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjYsMCAwLDYgMCw4IDgsMCIvPjxwb2x5Z29uIGZpbGw9IiNGRkZGRkYiIHBvaW50cz0iNiwxMCA4LDEwIDEwLDggMTAsNiIvPjwvZz48L3N2Zz4=");
+  background-color: $background;
+  @include svg-bg($size);
+}
+@mixin stripes-09 ( $background: $gray-light, $size: 10px ) {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMCAxMCI+PGcgb3BhY2l0eT0iMC45Ij48cG9seWdvbiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjYsMCAwLDYgMCw4IDgsMCIvPjxwb2x5Z29uIGZpbGw9IiNGRkZGRkYiIHBvaW50cz0iNiwxMCA4LDEwIDEwLDggMTAsNiIvPjwvZz48L3N2Zz4=");
+  background-color: $background;
+  @include svg-bg($size);
+}
+@mixin stripes-10 ( $background: $gray-light, $size: 10px ) {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMCAxMCI+PGcgb3BhY2l0eT0iMSI+PHBvbHlnb24gZmlsbD0iI0ZGRkZGRiIgcG9pbnRzPSI2LDAgMCw2IDAsOCA4LDAiLz48cG9seWdvbiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjYsMTAgOCwxMCAxMCw4IDEwLDYiLz48L2c+PC9zdmc+");
+  background-color: $background;
+  @include svg-bg($size);
+}

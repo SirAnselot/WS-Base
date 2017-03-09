@@ -1,0 +1,149 @@
+/*!
+* Customize on basis of Bootstrap v4.0.0-alpha.3 (http://getbootstrap.com)
+* Copyright 2011-2015 Twitter, Inc.
+* Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+*/
+// Core variables and mixins
+@import "variables";
+@import "../bootstrap/variables";
+
+$fluid-max-width: 2400px !default;
+
+// Mixins
+@import "mixins";
+@import "../bootstrap/mixins";
+
+// Reset and dependencies
+@import "../bootstrap/normalize";
+@import "../bootstrap/print";
+
+html {
+  font-size: 12px;
+}
+
+@include media-breakpoint-up(sm) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  html {
+    font-size: 18px;
+  }
+}
+
+// Core CSS
+@import "../bootstrap/reboot";
+@import "../bootstrap/type";
+@import "../bootstrap/images";
+@import "../bootstrap/code";
+@import "../bootstrap/grid";
+@import "../bootstrap/tables";
+@import "../bootstrap/forms";
+@import "../bootstrap/buttons";
+
+/* ENTYPO+ ICONS
+ *	--------------
+ * @see: 	/fonts/entypo-preview/index.html
+ *
+ *	Use like so:  <span class="icon-[icon-name]" /></span>
+/*	-----	*/
+
+@import "entypo";
+/*	-----	*/
+
+.icon::before { margin-right: 0; }
+
+/*	GLYPHICONS ICONS
+ *	------------------
+ * @see: 	/fonts/glyphicons-preview/index.html
+ *
+ *	!!! But use like so: <span class="glyp-[icon-name]" /></span> instead of <span class="glyphicons glyphicons-[icon-name]" /></span> as suggested by the overview page
+ *	(notice that also no additional scope 'glyphicons' or 'glyp' is needed)
+/* -----	*/
+
+@import "glyphiconspro";
+/*	-----	*/
+
+@import "../bootstrap/transitions";
+@import "../bootstrap/dropdown";
+@import "../bootstrap/button-group";
+@import "../bootstrap/input-group";
+@import "../bootstrap/custom-forms";
+@import "../bootstrap/nav";
+@import "../bootstrap/navbar";
+@import "../bootstrap/card";
+@import "../bootstrap/breadcrumb";
+@import "../bootstrap/pagination";
+@import "../bootstrap/badge";
+@import "../bootstrap/jumbotron";
+@import "../bootstrap/alert";
+@import "../bootstrap/progress";
+@import "../bootstrap/media";
+@import "../bootstrap/list-group";
+@import "../bootstrap/responsive-embed";
+@import "../bootstrap/close";
+
+// Components w/ JavaScript
+@import "../bootstrap/modal";
+@import "../bootstrap/tooltip";
+@import "../bootstrap/popover";
+@import "../bootstrap/carousel";
+
+// Utility classes
+@import "../bootstrap/utilities";
+
+// MEDIA QUERIES (samples)
+
+
+// Extra small devices (portrait phones, less than 34em)
+// No media query since this is the default in Bootstrap
+
+// Small devices (landscape phones, 34em and up)
+@media (min-width: 34em) { }
+
+// Medium devices (tablets, 48em and up)
+@media (min-width: 48em) { }
+
+// Large devices (desktops, 62em and up)
+@media (min-width: 62em) { }
+
+// Extra large devices (large desktops, 75em and up)
+@media (min-width: 75em) { }
+
+// Also available via Sass mixins:
+@include media-breakpoint-up(xs) { }
+@include media-breakpoint-up(sm) { }
+@include media-breakpoint-up(md) { }
+@include media-breakpoint-up(lg) { }
+@include media-breakpoint-up(xl) { }
+
+// We occasionally use media queries that go in the other direction (the given screen size or smaller):
+// Extra small devices (portrait phones, less than 34em)
+@media (max-width: 33.9em) { }
+
+// Small devices (landscape phones, less than 48em)
+@media (max-width: 47.9em) { }
+
+// Medium devices (tablets, less than 62em)
+@media (max-width: 61.9em) { }
+
+// Large devices (desktops, less than 75em)
+@media (max-width: 74.9em) { }
+
+// Extra large devices (large desktops)
+// No media query since the extra-large breakpoint has no upper bound on its width
+
+// Once again, these media queries are also available via Sass mixins
+@include media-breakpoint-down(xs) { }
+@include media-breakpoint-down(sm) { }
+@include media-breakpoint-down(md) { }
+@include media-breakpoint-down(lg) { }
+@include media-breakpoint-down(xl) { }
