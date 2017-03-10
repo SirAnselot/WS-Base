@@ -29,7 +29,7 @@
 				"app": {
 					"src": [
 						"public/js/app/app.js",
-                  "public/js/ws/*.js"
+                  "public/js/app/ws/*.js"
 					],
 					"dest": "dist/js"
 				},
